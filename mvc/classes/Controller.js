@@ -16,10 +16,10 @@ Controller.prototype.children	= null;
 // Public Methods
 Controller.prototype.init	= function() {
 	// TODO: Make async
-	if (this.view)
-		this.view.init();
 	if (this.model)
 		this.model.init();
+	if (this.view)
+		this.view.init();
 	for (var n = 0, l = this.children.length; n < l; n++)
 		this.children[n].init();
 	//
