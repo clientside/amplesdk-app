@@ -1,0 +1,7 @@
+## Rewrite engine
+RewriteEngine on
+
+##
+RewriteCond %{REQUEST_URI} !plugins
+RewriteRule ^(.*).js $1.php
+RewriteRule ^(.*).css $1.php

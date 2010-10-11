@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<div id="Main" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" style="display:none">
+	<div id="Main-pane-auth">
+		<button class="Main_button-login">Login</button> <button class="Main_button-logout">Logout</button>
+	</div>
+	<div id="Main.children">
+
+	</div>
+</div>

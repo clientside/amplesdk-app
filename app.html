@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<head>
+		<title>Project Template</title>
+		<!-- Ample SDK runtime and languages-->
+        <script type="text/javascript" src="/amplesdk/ample/runtime.js"></script>
+        <script type="text/javascript" src="/amplesdk/ample/languages/xhtml/xhtml.js"></script>
+		<script type="text/javascript" src="/amplesdk/ample/languages/xul/xul.js"></script>
+		<link type="text/ample+css" href="/amplesdk/ample/languages/xul/themes/default/style.css" rel="stylesheet"/>
+		<!-- MVC resources -->
+		<script type="text/javascript" src="mvc/mvc.js"></script>
+		<!-- App resources -->
+		<script type="text/javascript" src="app/Main.js"></script>
+		<script type="text/javascript" src="app/Main.View.js"></script>
+		<script type="text/javascript" src="app/Main.Model.js"></script>
+		<script type="text/javascript" src="app/commands/Main.ShowLoginCommand.js"></script>
+		<script type="text/javascript" src="app/commands/Main.ShowWorkspaceCommand.js"></script>
+		<script type="text/javascript" src="app/proxies/Main.Model.AuthenticationProxy.js"></script>
+		<script type="text/javascript" src="app/mediators/Main.View.AuthPaneMediator.js"></script>
+
+		<script type="text/javascript" src="app/.children/login/Login.js"></script>
+		<script type="text/javascript" src="app/.children/login/Login.View.js"></script>
+		<script type="text/javascript" src="app/.children/login/Login.Model.js"></script>
+
+		<script type="text/javascript" src="app/.children/workspace/Workspace.js"></script>
+		<script type="text/javascript" src="app/.children/workspace/Workspace.View.js"></script>
+		<script type="text/javascript" src="app/.children/workspace/Workspace.Model.js"></script>
+
+		<!-- Application start up -->
+		<script type="text/javascript">
+		ample.ready(function() {
+			void new Main().init();
+		});
+		</script>
+	</head>
+	<body>
+		<script type="application/ample+xml" src="res/templates/main.xml"></script>
+	</body>
+</html>
