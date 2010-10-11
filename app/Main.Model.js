@@ -5,7 +5,9 @@ Main.Model	= function() {
 Main.Model.prototype	= new Model;
 
 Main.Model.prototype.init	= function() {
-	this.data.key	= "";
+	this.data.key	= "secret";
+	//
+	Model.prototype.init.call(this);
 };
 
 Main.Model.prototype.getKey	= function() {
