@@ -23,7 +23,7 @@ Controller.prototype.init	= function() {
 	for (var n = 0, l = this.children.length; n < l; n++)
 		this.children[n].init();
 	//
-	this.view.sendNotification(new Notification("ready", this));
+	this.sendNotification(new Notification("ready", this));
 };
 
 Controller.prototype.addChild		= function(oController) {
@@ -37,7 +37,7 @@ Controller.prototype.addChild		= function(oController) {
 Controller.prototype.removeChild	= function(oController) {
 	var nIndex	= this.children.indexOf(oController);
 	if (nIndex >-1) {
-		oController	= null;
+		oController.parent	= null;
 		this.children	= this.children.slice(0, nIndex).concat(this.children.slice(nIndex + 1));
 	}
 };

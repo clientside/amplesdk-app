@@ -15,10 +15,11 @@ Model.prototype.sendNotification	= function(oNotification) {
 
 //
 Model.prototype.init	= function() {
-	// Create and register proxies
+	// Dispatch ready
+	this.sendNotification(new Notification("ready", this));
 };
 
 Model.prototype.addProxy	= function(oProxy) {
 	this.proxies.push(oProxy);
-	oProxy.controller	= this;
+	oProxy.model	= this;
 };

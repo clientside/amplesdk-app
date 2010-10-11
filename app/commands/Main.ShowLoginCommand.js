@@ -1,5 +1,5 @@
 Main.ShowLoginCommand	= function() {
-
+	Command.apply(this, arguments);
 };
 
 Main.ShowLoginCommand.prototype	= new Command;
