@@ -26,6 +26,19 @@ Controller.prototype.init	= function() {
 	this.sendNotification(new Notification("ready", this));
 };
 
+Controller.prototype.getChild		= function(cController, fCallback) {
+	for (var n = 0, oController; oController = this.children[n]; n++)
+		if (oController instanceof cController)
+			break;
+	if (!oController) {
+		oController	= new cController;
+		this.addChild(oController);
+		oController.init();
+	}
+
+	fCallback(oController);
+};
+
 Controller.prototype.addChild		= function(oController) {
 	var nIndex	= this.children.indexOf(oController);
 	if (nIndex < 0) {

@@ -11,7 +11,7 @@ Main.View.AuthPaneMediator.prototype.init	= function() {
 Main.View.AuthPaneMediator.prototype.handleEvent	= function(event) {
 	switch (event.target.getAttribute("class")) {
 		case "Main_button-login":
-			alert("login");
+			new Main.ShowLoginCommand(this.controller);
 			break;
 
 		case "Main_button-logout":
