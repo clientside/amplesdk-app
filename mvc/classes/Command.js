@@ -9,6 +9,7 @@ Command.prototype.controller= null;
 
 //
 Command.prototype.children	= null;
+Command.prototype.current	=-1;
 
 Command.prototype.addChild	= function(oCommand) {
 	var nIndex	= this.children.indexOf(oCommand);
@@ -28,4 +29,16 @@ Command.prototype.removeChild	= function(oCommand) {
 Command.prototype.execute	= function() {
 	for (var n = 0, l = this.children.length; n < l; n++)
 		this.children[n].execute();
+};
+
+Command.prototype.cancel	= function() {
+
+};
+
+Command.prototype.pause		= function() {
+
+};
+
+Command.prototype.resume	= function() {
+
 };

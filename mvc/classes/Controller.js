@@ -14,7 +14,7 @@ Controller.prototype.parent		= null;
 Controller.prototype.children	= null;
 
 // Public Methods
-Controller.prototype.init	= function() {
+Controller.prototype.startup	= function() {
 	// TODO: Make async
 	if (this.model)
 		this.model.init();
@@ -22,6 +22,10 @@ Controller.prototype.init	= function() {
 		this.view.init();
 	for (var n = 0, l = this.children.length; n < l; n++)
 		this.children[n].init();
+};
+
+Controller.prototype.init	= function() {
+
 	//
 	this.sendNotification(new Notification("ready", this));
 };
