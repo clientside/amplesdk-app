@@ -5,8 +5,17 @@ Main.ShowWorkspaceCommand	= function() {
 Main.ShowWorkspaceCommand.prototype	= new Command;
 
 Main.ShowWorkspaceCommand.prototype.execute	= function() {
-	var main	= this.controller;
-	this.controller.getChild(Workspace, function(controller) {
-//		controller.view.show();
-	});
+	switch (this.current) {
+		case 0:
+			// Asynch
+			var oController	= new Workspace;
+			this.controller.addChild(oController);
+			break;
+
+		case 1:
+			oController	= this.controller.getChild(Workspace);
+			break;
+	}
+	//
+	this.route();
 };

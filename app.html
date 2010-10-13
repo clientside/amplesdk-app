@@ -9,20 +9,29 @@
 		<link type="text/ample+css" href="/amplesdk/ample/languages/xul/themes/default/style.css" rel="stylesheet"/>
 		<!-- MVC resources -->
 		<script type="text/javascript" src="mvc/mvc.js"></script>
+
 		<!-- App resources -->
-		<link type="text/ample+css" href="res/main.css" rel="stylesheet"/>
+		<!-- Context: Main -->
 		<script type="text/javascript" src="src/Main.js"></script>
 		<script type="text/javascript" src="src/Main.View.js"></script>
 		<script type="text/javascript" src="src/Main.Model.js"></script>
+
+		<script type="text/javascript" src="src/commands/Main.PrepareLoginCommand.js"></script>
+		<script type="text/javascript" src="src/commands/Main.PrepareWorkspaceCommand.js"></script>
 		<script type="text/javascript" src="src/commands/Main.ShowLoginCommand.js"></script>
 		<script type="text/javascript" src="src/commands/Main.ShowWorkspaceCommand.js"></script>
-		<script type="text/javascript" src="src/proxies/Main.Model.AuthenticationProxy.js"></script>
-		<script type="text/javascript" src="src/mediators/Main.View.AuthPaneMediator.js"></script>
 
+		<script type="text/javascript" src="src/proxies/Main.Model.AuthenticationProxy.js"></script>
+
+		<script type="text/javascript" src="src/mediators/Main.View.AuthPaneMediator.js"></script>
+		<link type="text/ample+css" href="res/main.css" rel="stylesheet"/>
+
+		<!-- Context: Login -->
 		<script type="text/javascript" src="src/.children/login/Login.js"></script>
 		<script type="text/javascript" src="src/.children/login/Login.View.js"></script>
 		<script type="text/javascript" src="src/.children/login/Login.Model.js"></script>
 
+		<!-- Context: Workspace -->
 		<script type="text/javascript" src="src/.children/workspace/Workspace.js"></script>
 		<script type="text/javascript" src="src/.children/workspace/Workspace.View.js"></script>
 		<script type="text/javascript" src="src/.children/workspace/Workspace.Model.js"></script>

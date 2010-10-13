@@ -9,16 +9,9 @@ Main.prototype.init	= function() {
 	this.model	= new Main.Model;
 	this.view	= new Main.View;
 	//
+	// Register commands
+	this.registerCommand("ShowLogin", 		Main.ShowLoginCommand);
+	this.registerCommand("ShowWorkspace",	Main.ShowWorkspaceCommand);
+	//
 	Controller.prototype.init.call(this);
-};
-
-Main.prototype.sendNotification	= function(oNotification) {
-	switch (oNotification.type) {
-		case "ready":
-			if (this.model.getKey() == "secret")
-				new Main.ShowWorkspaceCommand(this).execute();
-			else
-				new Main.ShowLoginCommand(this).execute();
-			break;
-	}
 };

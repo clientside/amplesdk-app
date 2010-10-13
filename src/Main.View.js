@@ -14,7 +14,7 @@ Main.View.prototype.init	= function() {
 };
 
 Main.View.prototype.handleNotification	= function(oNotification) {
-	if (oNotification.type == "ready") {
-		ample.query(this.element).show('normal');
+	if (oNotification.name == "ready") {
+		ample.query(this.element).show("slow");
 	}
 };

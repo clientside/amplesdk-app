@@ -1,7 +1,7 @@
 function Controller() {
 	this.children	= [];
 	//
-	this.commands	= [];
+	this.commands	= {};
 };
 
 //
@@ -14,7 +14,7 @@ Controller.prototype.parent		= null;
 Controller.prototype.children	= null;
 
 // Public Methods
-Controller.prototype.startup	= function() {
+Controller.prototype.init	= function() {
 	// TODO: Make async
 	if (this.model)
 		this.model.init();
@@ -22,10 +22,6 @@ Controller.prototype.startup	= function() {
 		this.view.init();
 	for (var n = 0, l = this.children.length; n < l; n++)
 		this.children[n].init();
-};
-
-Controller.prototype.init	= function() {
-
 	//
 	this.sendNotification(new Notification("ready", this));
 };
@@ -61,11 +57,15 @@ Controller.prototype.removeChild	= function(oController) {
 */
 //
 Controller.prototype.sendNotification	= function(oNotification) {
-
+	console.log(oNotification.name)
+	if (oNotification.name in this.commands)
+		for (var nIndex = 0, cCommand; cCommand = this.commands[oNotification.name][nIndex]; nIndex++)
+			new cCommand(this).execute();
 };
 
 //
-Controller.prototype.addCommand	= function(oCommand) {
-	this.commands.push(oCommand);
-	oCommand.controller	= this;
+Controller.prototype.registerCommand	= function(sNotification, cCommand) {
+	if (!(sNotification in this.commands))
+		this.commands[sNotification]	= [];
+	this.commands[sNotification].push(cCommand);
 };
