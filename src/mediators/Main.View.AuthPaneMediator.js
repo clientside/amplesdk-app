@@ -4,18 +4,24 @@ Main.View.AuthPaneMediator	= function() {
 
 Main.View.AuthPaneMediator.prototype	= new Mediator;
 
-Main.View.AuthPaneMediator.prototype.init	= function() {
+Main.View.AuthPaneMediator.prototype.onRegister	= function() {
 	ample.query("#Main-pane-auth", this.view.element).bind("click", this);
+};
+
+Main.View.AuthPaneMediator.prototype.handleNotification	= function(notification) {
+	switch (notification.name) {
+
+	}
 };
 
 Main.View.AuthPaneMediator.prototype.handleEvent	= function(event) {
 	switch (event.target.getAttribute("class")) {
 		case "Main_button-login":
-			new Main.ShowLoginCommand(this.controller);
+			this.sendNotification(new Notification("Login"));
 			break;
 
 		case "Main_button-logout":
-			alert("logout");
+			this.sendNotification(new Notification("Logout"));
 			break;
 	}
 };

@@ -1,11 +1,15 @@
 Main.Model	= function() {
+	//
 	Model.apply(this, arguments);
+	//
+	this.addProxy("AuthenticationProxy", new Main.Model.AuthenticationProxy(this));
 };
 
 Main.Model.prototype	= new Model;
 
 Main.Model.prototype.init	= function() {
-	this.data.key	= "secret";
+	//
+	this.proxies.AuthenticationProxy.setData("key", "secret");
 	//
 	Model.prototype.init.call(this);
 };

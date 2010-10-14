@@ -10,6 +10,7 @@ Main.prototype.init	= function() {
 	this.view	= new Main.View;
 	//
 	// Register commands
+	this.registerCommand("$Ready",			Main.StartupCommand);
 	this.registerCommand("ShowLogin", 		Main.ShowLoginCommand);
 	this.registerCommand("ShowWorkspace",	Main.ShowWorkspaceCommand);
 	//

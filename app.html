@@ -16,8 +16,7 @@
 		<script type="text/javascript" src="src/Main.View.js"></script>
 		<script type="text/javascript" src="src/Main.Model.js"></script>
 
-		<script type="text/javascript" src="src/commands/Main.PrepareLoginCommand.js"></script>
-		<script type="text/javascript" src="src/commands/Main.PrepareWorkspaceCommand.js"></script>
+		<script type="text/javascript" src="src/commands/Main.StartupCommand.js"></script>
 		<script type="text/javascript" src="src/commands/Main.ShowLoginCommand.js"></script>
 		<script type="text/javascript" src="src/commands/Main.ShowWorkspaceCommand.js"></script>
 
@@ -31,15 +30,21 @@
 		<script type="text/javascript" src="src/.children/login/Login.View.js"></script>
 		<script type="text/javascript" src="src/.children/login/Login.Model.js"></script>
 
+		<script type="text/javascript" src="src/.children/login/commands/Login.StartupCommand.js"></script>
+
 		<!-- Context: Workspace -->
 		<script type="text/javascript" src="src/.children/workspace/Workspace.js"></script>
 		<script type="text/javascript" src="src/.children/workspace/Workspace.View.js"></script>
 		<script type="text/javascript" src="src/.children/workspace/Workspace.Model.js"></script>
 
+		<script type="text/javascript" src="src/.children/workspace/commands/Workspace.StartupCommand.js"></script>
+		<script type="text/javascript" src="src/.children/workspace/mediators/Workspace.View.DummyMediator.js"></script>
+
 		<!-- Application start up -->
 		<script type="text/javascript">
 		ample.ready(function() {
-			void new Main().init();
+			var oApplication	= new Main();
+			oApplication.sendNotification(new Notification("Startup", oApplication));
 		});
 		</script>
 	</head>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <div id="Workspace" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" style="display:none">
 	<div>
-		This is workspace
+		This is workspace content
 	</div>
-	<div id="Workspace.children">
+	<div id="Workspace$children">
 
 	</div>
 </div>

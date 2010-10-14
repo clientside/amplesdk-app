@@ -3,7 +3,7 @@
 	<div id="Main-pane-auth">
 		<button class="Main_button-login">Login</button> <button class="Main_button-logout">Logout</button>
 	</div>
-	<div id="Main.children">
+	<div id="Main$children">
 
 	</div>
 </div>

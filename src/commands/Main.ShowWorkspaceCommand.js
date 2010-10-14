@@ -5,17 +5,19 @@ Main.ShowWorkspaceCommand	= function() {
 Main.ShowWorkspaceCommand.prototype	= new Command;
 
 Main.ShowWorkspaceCommand.prototype.execute	= function() {
-	switch (this.current) {
-		case 0:
-			// Asynch
-			var oController	= new Workspace;
-			this.controller.addChild(oController);
-			break;
+	var oController	= this.controller,
+		oWorkspace	= this.controller.getChild("Workspace");
+	if (oWorkspace)
+		oWorkspace.sendNotification("Show");
+	else {
+		ample.get("res/.children/workspace/workspace.xml", null, function(oDocument) {
+			var oView	= ample.importNode(oDocument.documentElement, true);
+			ample.query("#Main$children", oController.view.element)[0].appendChild(oView);
 
-		case 1:
-			oController	= this.controller.getChild(Workspace);
-			break;
+			var oWorkspace	= new Workspace;
+			oWorkspace.sendNotification(new Notification("Startup", oWorkspace));
+			//
+			oController.addChild("Workspace", oWorkspace);
+		});
 	}
-	//
-	this.route();
 };

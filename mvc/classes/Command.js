@@ -25,6 +25,13 @@ Command.prototype.removeChild	= function(oCommand) {
 	}
 };
 */
+
+//
+Command.prototype.sendNotification	= function(oNotification) {
+	// Forward notification to controller
+	this.controller.sendNotification(oNotification);
+};
+
 //
 Command.prototype.execute	= function() {
 	for (var n = 0, l = this.children.length; n < l; n++)

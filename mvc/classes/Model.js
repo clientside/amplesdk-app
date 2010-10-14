@@ -1,7 +1,6 @@
 function Model() {
-	this.data	= {};
 	//
-	this.proxies	= [];
+	this.proxies	= {};
 };
 
 //
@@ -9,17 +8,14 @@ Model.prototype.data	= null;
 //
 Model.prototype.proxies	= null;
 
-Model.prototype.sendNotification	= function(oNotification) {
-
-};
-
 //
 Model.prototype.init	= function() {
-	// Dispatch ready
-	this.sendNotification(new Notification("ready", this));
+	for (var sName in this.proxies)
+		if (this.proxies.hasOwnProperty(sName))
+			this.proxies[sName].onRegister();
 };
 
-Model.prototype.addProxy	= function(oProxy) {
-	this.proxies.push(oProxy);
+Model.prototype.addProxy	= function(sName, oProxy) {
+	this.proxies[sName]	= oProxy;
 	oProxy.model	= this;
 };
