@@ -11,5 +11,5 @@ Controller.ShutdownCommand.prototype.execute	= function() {
 	for (var n = 0, l = this.controller.children.length; n < l; n++)
 		new Controller.ShutdownCommand(this.controller.children[n]).execute();
 	//
-	this.controller.sendNotification(new Notification("$Disposed", this.controller));
+	this.controller.sendNotification("$Disposed");
 };

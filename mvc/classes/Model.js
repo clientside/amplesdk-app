@@ -1,12 +1,14 @@
-function Model() {
+function Model(oController) {
 	//
 	this.proxies	= {};
+	this.controller	= oController;
 };
 
 //
 Model.prototype.data	= null;
 //
-Model.prototype.proxies	= null;
+Model.prototype.proxies		= null;
+Model.prototype.controller	= null;
 
 //
 Model.prototype.init	= function() {

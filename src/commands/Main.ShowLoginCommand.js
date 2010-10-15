@@ -15,7 +15,7 @@ Main.ShowLoginCommand.prototype.execute	= function() {
 			ample.query("#Main$children", oController.view.element)[0].appendChild(oView);
 
 			var oLogin	= new Login;
-			oLogin.sendNotification(new Notification("Startup", oLogin));
+			oLogin.sendNotification("Startup");
 			//
 			oController.addChild("Login", oLogin);
 		});

@@ -17,11 +17,11 @@ Main.View.AuthPaneMediator.prototype.handleNotification	= function(notification)
 Main.View.AuthPaneMediator.prototype.handleEvent	= function(event) {
 	switch (event.target.getAttribute("class")) {
 		case "Main_button-login":
-			this.sendNotification(new Notification("Login"));
+			this.sendNotification("Login");
 			break;
 
 		case "Main_button-logout":
-			this.sendNotification(new Notification("Logout"));
+			this.sendNotification("Logout");
 			break;
 	}
 };

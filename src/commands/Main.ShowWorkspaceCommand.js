@@ -15,7 +15,7 @@ Main.ShowWorkspaceCommand.prototype.execute	= function() {
 			ample.query("#Main$children", oController.view.element)[0].appendChild(oView);
 
 			var oWorkspace	= new Workspace;
-			oWorkspace.sendNotification(new Notification("Startup", oWorkspace));
+			oWorkspace.sendNotification("Startup");
 			//
 			oController.addChild("Workspace", oWorkspace);
 		});

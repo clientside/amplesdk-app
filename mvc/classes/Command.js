@@ -27,9 +27,9 @@ Command.prototype.removeChild	= function(oCommand) {
 */
 
 //
-Command.prototype.sendNotification	= function(oNotification) {
+Command.prototype.sendNotification	= function(sNotification) {
 	// Forward notification to controller
-	this.controller.sendNotification(oNotification);
+	this.controller.sendNotification(sNotification);
 };
 
 //

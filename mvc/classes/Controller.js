@@ -10,6 +10,7 @@ Controller.prototype.view	= null;
 //
 Controller.prototype.commands	= null;
 
+Controller.prototype.name		= null;
 Controller.prototype.parent		= null;
 Controller.prototype.children	= null;
 
@@ -32,6 +33,7 @@ Controller.prototype.getChild		= function(sName) {
 Controller.prototype.addChild		= function(sName, oController) {
 	this.children[sName]	= oController;
 	oController.parent	= this;
+	oController.name	= sName;
 };
 /*
 Controller.prototype.removeChild	= function(oController) {
@@ -42,23 +44,30 @@ Controller.prototype.removeChild	= function(oController) {
 };
 */
 //
-Controller.prototype.sendNotification	= function(oNotification) {
-console.log(oNotification);
+Controller.prototype.sendNotification	= function(sNotification) {
+console.log(sNotification);
+
+	var oNotification	= new Notification(sNotification);
+
 	if (this.view)
 		for (var sName in this.view.mediators)
 			if (this.view.mediators.hasOwnProperty(sName))
 				this.view.mediators[sName].handleNotification(oNotification);
 
 	//
-	if (oNotification.name == "Startup")
+	if (sNotification == "Startup")
 		new Controller.StartupCommand(this).execute();
 	else
-	if (oNotification.name == "Shutdown")
+	if (sNotification == "Shutdown")
 		new Controller.ShutdownCommand(this).execute();
 	else
 	if (oNotification.name in this.commands)
-		for (var nIndex = 0, cCommand; cCommand = this.commands[oNotification.name][nIndex]; nIndex++)
+		for (var nIndex = 0, cCommand; cCommand = this.commands[sNotification][nIndex]; nIndex++)
 			new cCommand(this).execute();
+
+	// Pass notification to parent
+	if (this.parent)
+		this.parent.sendNotification(this.name + ":" + sNotification);
 };
 
 //

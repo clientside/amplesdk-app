@@ -2,6 +2,7 @@
 <div id="Workspace" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" style="display:none">
 	<div>
 		This is workspace content
+		<button id="Workspace-logout">Logout</button>
 	</div>
 	<div id="Workspace$children">
 

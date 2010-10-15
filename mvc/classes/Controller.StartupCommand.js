@@ -11,5 +11,5 @@ Controller.StartupCommand.prototype.execute	= function() {
 	for (var n = 0, l = this.controller.children.length; n < l; n++)
 		new Controller.StartupCommand(this.controller.children[n]).execute();
 	//
-	this.controller.sendNotification(new Notification("$Ready", this.controller));
+	this.controller.sendNotification("$Ready");
 };
