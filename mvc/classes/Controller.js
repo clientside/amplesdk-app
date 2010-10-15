@@ -45,7 +45,7 @@ Controller.prototype.removeChild	= function(oController) {
 */
 //
 Controller.prototype.sendNotification	= function(sNotification) {
-console.log(sNotification);
+console.info("notification: ", sNotification);
 
 	var oNotification	= new Notification(sNotification);
 
@@ -62,8 +62,10 @@ console.log(sNotification);
 		new Controller.ShutdownCommand(this).execute();
 	else
 	if (oNotification.name in this.commands)
-		for (var nIndex = 0, cCommand; cCommand = this.commands[sNotification][nIndex]; nIndex++)
+		for (var nIndex = 0, cCommand; cCommand = this.commands[sNotification][nIndex]; nIndex++) {
+			console.warn("command: ", sNotification);
 			new cCommand(this).execute();
+		}
 
 	// Pass notification to parent
 	if (this.parent)

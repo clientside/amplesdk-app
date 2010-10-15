@@ -6,7 +6,7 @@ Login.View.FormMediator.prototype	= new Mediator;
 
 Login.View.FormMediator.prototype.onRegister	= function() {
 	ample.query("#Login-form", this.view.element)
-		.bind("click", this)
+		.bind("DOMActivate", this)
 		.bind("change", this);
 };
 
@@ -47,7 +47,7 @@ Login.View.FormMediator.prototype.handleEvent	= function(oEvent) {
 		}
 	}
 	else
-	if (oEvent.type == "click") {
+	if (oEvent.type == "DOMActivate") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Login-form-submit":
 				this.sendNotification("TryLogin");

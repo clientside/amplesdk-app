@@ -6,7 +6,7 @@ Workspace.View.DummyMediator.prototype	= new Mediator;
 
 Workspace.View.DummyMediator.prototype.onRegister	= function() {
 	ample.query("#Workspace-logout", this.view.element)
-		.bind("click", this);
+		.bind("DOMActivate", this);
 };
 
 Workspace.View.DummyMediator.prototype.handleNotification	= function(oNotification) {
@@ -23,7 +23,7 @@ Workspace.View.DummyMediator.prototype.handleNotification	= function(oNotificati
 };
 
 Workspace.View.DummyMediator.prototype.handleEvent	= function(oEvent) {
-	if (oEvent.type == "click") {
+	if (oEvent.type == "DOMActivate") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Workspace-logout":
 				this.sendNotification("TryLogout");
