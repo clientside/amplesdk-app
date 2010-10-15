@@ -5,10 +5,13 @@ Controller.StartupCommand	= function() {
 Controller.StartupCommand.prototype	= new Command;
 
 Controller.StartupCommand.prototype.execute	= function() {
-	var oController	= this.controller;
 	// TODO: Make async
+	var oController	= this.controller;
+
+	// 0:
 	oController.init();
 
+	// 1: prepare Model
 	if (oController.model) {
 		//
 		oController.model.init();
@@ -18,6 +21,7 @@ Controller.StartupCommand.prototype.execute	= function() {
 				oController.model.proxies[sName].onRegister();
 	}
 
+	// 2: prepare Model
 	if (oController.view) {
 		//
 		oController.view.init();
