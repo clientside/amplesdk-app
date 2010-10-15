@@ -20,10 +20,7 @@ Controller.queue	= [];
 
 // Public Methods
 Controller.prototype.init	= function() {
-	if (this.model)
-		this.model.init();
-	if (this.view)
-		this.view.init();
+
 };
 
 Controller.prototype.getChild		= function(sName) {
@@ -44,32 +41,36 @@ Controller.prototype.removeChild	= function(oController) {
 };
 */
 //
-Controller.prototype.sendNotification	= function(sNotification) {
-console.info("notification: ", sNotification);
-
-	var oNotification	= new Notification(sNotification);
-
-	if (this.view)
-		for (var sName in this.view.mediators)
-			if (this.view.mediators.hasOwnProperty(sName))
-				this.view.mediators[sName].handleNotification(oNotification);
+Controller.routeNotification	= function(oController, oNotification) {
+	if (oController.view)
+		for (var sName in oController.view.mediators)
+			if (oController.view.mediators.hasOwnProperty(sName))
+				oController.view.mediators[sName].handleNotification(oNotification);
 
 	//
-	if (sNotification == "Startup")
-		new Controller.StartupCommand(this).execute();
+	if (oNotification.name == "Startup")
+		new Controller.StartupCommand(oController).execute();
 	else
-	if (sNotification == "Shutdown")
-		new Controller.ShutdownCommand(this).execute();
+	if (oNotification.name == "Shutdown")
+		new Controller.ShutdownCommand(oController).execute();
 	else
-	if (oNotification.name in this.commands)
-		for (var nIndex = 0, cCommand; cCommand = this.commands[sNotification][nIndex]; nIndex++) {
-			console.warn("command: ", sNotification);
-			new cCommand(this).execute();
+	if (oNotification.name in oController.commands)
+		for (var nIndex = 0, cCommand; cCommand = oController.commands[oNotification.name][nIndex]; nIndex++) {
+			console.warn("command: ", oNotification.name);
+			new cCommand(oController).execute();
 		}
 
 	// Pass notification to parent
-	if (this.parent)
-		this.parent.sendNotification(this.name + ":" + sNotification);
+	if (oController.parent) {
+		oNotification.name	= oController.name + ':' + oNotification.name;
+		console.info("notification (routing): ", oNotification.name);
+		Controller.routeNotification(oController.parent, oNotification);
+	}
+};
+
+Controller.prototype.sendNotification	= function(sNotification) {
+console.info("notification: ", sNotification);
+	Controller.routeNotification(this, new Notification(sNotification));
 };
 
 //

@@ -12,9 +12,11 @@ Model.prototype.controller	= null;
 
 //
 Model.prototype.init	= function() {
-	for (var sName in this.proxies)
-		if (this.proxies.hasOwnProperty(sName))
-			this.proxies[sName].onRegister();
+
+};
+
+Model.prototype.getProxy	= function(sName) {
+	return this.proxies.hasOwnProperty(sName) ? this.proxies[sName] : null;
 };
 
 Model.prototype.addProxy	= function(sName, oProxy) {

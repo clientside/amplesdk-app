@@ -9,9 +9,7 @@ View.prototype.controller	= null;
 
 //
 View.prototype.init	= function() {
-	for (var sName in this.mediators)
-		if (this.mediators.hasOwnProperty(sName))
-			this.mediators[sName].onRegister();
+
 };
 
 //

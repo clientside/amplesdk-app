@@ -10,6 +10,4 @@ Workspace.View.prototype	= new View;
 Workspace.View.prototype.init	= function() {
 	//
 	this.element	= ample.query("#Workspace")[0];
-	//
-	View.prototype.init.call(this);
 };

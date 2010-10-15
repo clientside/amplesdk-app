@@ -6,5 +6,6 @@ Main.HideWorkspaceCommand.prototype	= new Command;
 
 Main.HideWorkspaceCommand.prototype.execute	= function() {
 	var oWorkspace	= this.controller.getChild("Workspace");
-	oWorkspace.sendNotification("Hide");
+	if (oWorkspace)
+		oWorkspace.sendNotification("Hide");
 };

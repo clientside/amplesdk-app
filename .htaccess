@@ -1,0 +1,5 @@
+## Rewrite engine
+RewriteEngine on
+
+##
+RewriteRule ^(.*).js $1.php
