@@ -3,8 +3,6 @@
 
 	// Classes
 	$aFiles[]	= "Workspace.js";
-	$aFiles[]	= "Workspace.Model.js";
-	$aFiles[]	= "Workspace.View.js";
 	//
 	$aFiles[]	= "commands/_ReadyCommand.js";
 	//

@@ -1,13 +1,11 @@
 function Main() {
 	//
-	Controller.call(this);
+	MVC.call(this);
 };
 
-Main.prototype	= new Controller;
+Main.prototype	= new MVC;
 
-Main.prototype.init	= function() {
-	this.model	= new Main.Model(this);
-	this.view	= new Main.View(this);
+Main.prototype.initController	= function() {
 	// Register commands
 	this.registerCommand("_Ready",			Main._ReadyCommand);
 
@@ -16,4 +14,16 @@ Main.prototype.init	= function() {
 
 	this.registerCommand("ShowWorkspace",	Main.ShowWorkspaceCommand);
 	this.registerCommand("HideWorkspace",	Main.HideWorkspaceCommand);
+};
+
+Main.prototype.initModel	= function() {
+	//
+	this.registerProxy("UserProxy", new Main.UserProxy(this, new Main.UserEntity));
+	// TODO: ???
+	this.retrieveProxy("UserProxy").getData().key	= "secret";
+};
+
+Main.prototype.initView		= function() {
+	// register mediators
+	this.registerMediator("LoginMediator", new Main.LoginMediator(this, ample.query("#Main-auth")[0]));
 };

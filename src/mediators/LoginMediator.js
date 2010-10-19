@@ -1,16 +1,16 @@
-Main.View.LoginMediator	= function() {
-	Mediator.apply(this, arguments);
+Main.LoginMediator	= function() {
+	MVC.Mediator.apply(this, arguments);
 };
 
-Main.View.LoginMediator.prototype	= new Mediator;
+Main.LoginMediator.prototype	= new MVC.Mediator;
 
-Main.View.LoginMediator.prototype.onRegister	= function() {
-	ample.query("#Main-login, #Main-logout")
+Main.LoginMediator.prototype.onRegister	= function() {
+	ample.query("#Main-login, #Main-logout", this.element)
 		.bind("DOMActivate", this)
 		.bind("change", this);
 };
 
-Main.View.LoginMediator.prototype.handleNotification	= function(oNotification) {
+Main.LoginMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
 		case "ShowLogin":
 			ample.query("#Main-login").show("slow");
@@ -23,29 +23,29 @@ Main.View.LoginMediator.prototype.handleNotification	= function(oNotification) {
 			break;
 
 		case "TryLogin":
-			ample.query("#Main-login-form-submit", this.view.element).attr("disabled", "true");
+			ample.query("#Main-login-form-submit", this.element).attr("disabled", "true");
 			break;
 
 		case "LoginFailed":
-			ample.query("#Main-login-form-submit", this.view.element).attr("disabled", null);
+			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
 			break;
 
 		case "LoginSuccess":
-			ample.query("#Main-login-form-submit", this.view.element).attr("disabled", null);
+			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
 			break;
 
 	}
 };
 
-Main.View.LoginMediator.prototype.handleEvent	= function(oEvent) {
+Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 	if (oEvent.type == "change") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Main-login-form-name":
-				this.view.controller.model.getProxy("UserProxy").setData("name", oEvent.target.getAttribute("value"));
+				this.facade.retrieveProxy("UserProxy").setData("name", oEvent.target.getAttribute("value"));
 				break;
 
 			case "Main-login-form-pass":
-				this.view.controller.model.getProxy("UserProxy").setData("pass", oEvent.target.getAttribute("value"));
+				this.facade.retrieveProxy("UserProxy").setData("pass", oEvent.target.getAttribute("value"));
 				break;
 		}
 	}

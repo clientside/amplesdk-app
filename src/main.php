@@ -3,8 +3,6 @@
 
 	// Classes
 	$aFiles[]	= "Main.js";
-	$aFiles[]	= "Main.Model.js";
-	$aFiles[]	= "Main.View.js";
 	//
 	$aFiles[]	= "entities/UserEntity.js";
 	//

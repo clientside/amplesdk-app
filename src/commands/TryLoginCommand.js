@@ -1,8 +1,8 @@
 Main.TryLoginCommand	= function() {
-	Command.apply(this, arguments);
+	MVC.Command.apply(this, arguments);
 };
 
-Main.TryLoginCommand.prototype	= new Command;
+Main.TryLoginCommand.prototype	= new MVC.Command;
 
 Main.TryLoginCommand.prototype.execute	= function() {
 	var that = this;

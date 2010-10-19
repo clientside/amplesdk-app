@@ -1,5 +1,5 @@
-Main.Model.UserProxy	= function() {
-	Proxy.apply(this, arguments);
+Main.UserProxy	= function() {
+	MVC.Proxy.apply(this, arguments);
 };
 
-Main.Model.UserProxy.prototype	= new Proxy;
+Main.UserProxy.prototype	= new MVC.Proxy;

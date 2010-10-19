@@ -1,13 +1,16 @@
 function Workspace() {
 	//
-	Controller.call(this);
+	MVC.call(this);
 };
 
-Workspace.prototype	= new Controller;
+Workspace.prototype	= new MVC;
 
-Workspace.prototype.init	= function() {
-	this.model	= new Workspace.Model(this);
-	this.view	= new Workspace.View(this);
+Workspace.prototype.initController	= function() {
 	// Register commands
-	this.registerCommand("_Ready",			Workspace._ReadyCommand);
+	this.registerCommand("_Ready",	Workspace._ReadyCommand);
 };
+
+Workspace.prototype.initView	= function() {
+	// register mediators
+	this.registerMediator("DummyMediator", new Workspace.DummyMediator(this, ample.query("#Workspace-dummy")[0]));
+}

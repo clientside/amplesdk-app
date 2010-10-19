@@ -2,16 +2,14 @@
 	$aFiles		= array();
 
 	// Classes
-	$aFiles[]	= "classes/Command.js";
-	$aFiles[]	= "classes/Controller.js";
-	$aFiles[]	= "classes/Mediator.js";
-	$aFiles[]	= "classes/Model.js";
-	$aFiles[]	= "classes/Notification.js";
-	$aFiles[]	= "classes/Proxy.js";
-	$aFiles[]	= "classes/View.js";
+	$aFiles[]	= "classes/MVC.js";
+	$aFiles[]	= "classes/MVC.Command.js";
+	$aFiles[]	= "classes/MVC.Mediator.js";
+	$aFiles[]	= "classes/MVC.Notification.js";
+	$aFiles[]	= "classes/MVC.Proxy.js";
 	//
-	$aFiles[]	= "classes/Controller.StartupCommand.js";
-	$aFiles[]	= "classes/Controller.ShutdownCommand.js";
+	$aFiles[]	= "classes/MVC.StartupCommand.js";
+	$aFiles[]	= "classes/MVC.ShutdownCommand.js";
 
 	$sOutput	= "";
 	for ($nIndex = 0; $nIndex < count($aFiles); $nIndex++)

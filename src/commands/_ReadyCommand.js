@@ -1,16 +1,16 @@
 Main._ReadyCommand	= function() {
-	Command.apply(this, arguments);
+	MVC.Command.apply(this, arguments);
 };
 
-Main._ReadyCommand.prototype	= new Command;
+Main._ReadyCommand.prototype	= new MVC.Command;
 
 Main._ReadyCommand.prototype.execute	= function() {
 	//
-	if (this.controller.model.getProxy("UserProxy").getData().key == "secrets") {
-		this.controller.sendNotification("HideLogin");
-		this.controller.sendNotification("ShowWorkspace");
+	if (this.facade.retrieveProxy("UserProxy").getData().key == "secrets") {
+		this.facade.sendNotification("HideLogin");
+		this.facade.sendNotification("ShowWorkspace");
 	}
 	else {
-		this.controller.sendNotification("ShowLogin");
+		this.facade.sendNotification("ShowLogin");
 	}
 };

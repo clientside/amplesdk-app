@@ -1,8 +1,8 @@
 Main.TryLogoutCommand	= function() {
-	Command.apply(this, arguments);
+	MVC.Command.apply(this, arguments);
 };
 
-Main.TryLogoutCommand.prototype	= new Command;
+Main.TryLogoutCommand.prototype	= new MVC.Command;
 
 Main.TryLogoutCommand.prototype.execute	= function() {
 	var that = this;

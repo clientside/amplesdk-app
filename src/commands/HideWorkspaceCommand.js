@@ -1,11 +1,11 @@
 Main.HideWorkspaceCommand	= function() {
-	Command.apply(this, arguments);
+	MVC.Command.apply(this, arguments);
 };
 
-Main.HideWorkspaceCommand.prototype	= new Command;
+Main.HideWorkspaceCommand.prototype	= new MVC.Command;
 
 Main.HideWorkspaceCommand.prototype.execute	= function() {
-	var oWorkspace	= this.controller.getChild("Workspace");
+	var oWorkspace	= this.facade.getChild("Workspace");
 	if (oWorkspace)
 		oWorkspace.sendNotification("Hide");
 };

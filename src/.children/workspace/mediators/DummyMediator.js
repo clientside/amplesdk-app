@@ -1,25 +1,25 @@
-Workspace.View.DummyMediator	= function() {
-	Mediator.apply(this, arguments);
+Workspace.DummyMediator	= function() {
+	MVC.Mediator.apply(this, arguments);
 };
 
-Workspace.View.DummyMediator.prototype	= new Mediator;
+Workspace.DummyMediator.prototype	= new MVC.Mediator;
 
-Workspace.View.DummyMediator.prototype.onRegister	= function() {
+Workspace.DummyMediator.prototype.onRegister	= function() {
 
 };
 
-Workspace.View.DummyMediator.prototype.handleNotification	= function(oNotification) {
+Workspace.DummyMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
 		case "Show":
-			ample.query(this.view.element).show("slow");
+			ample.query(this.element).show("slow");
 			break;
 
 		case "Hide":
-			ample.query(this.view.element).hide();
+			ample.query(this.element).hide();
 			break;
 	}
 };
 
-Workspace.View.DummyMediator.prototype.handleEvent	= function(oEvent) {
+Workspace.DummyMediator.prototype.handleEvent	= function(oEvent) {
 
 };
