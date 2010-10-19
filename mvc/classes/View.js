@@ -14,6 +14,8 @@ View.prototype.init	= function() {
 
 //
 View.prototype.addMediator	= function(sName, oMediator) {
+	if (!(oMediator instanceof Mediator))
+		throw String(oMediator) + " is not instanceof Mediator";
+
 	this.mediators[sName]	= oMediator;
-	oMediator.view	= this;
 };

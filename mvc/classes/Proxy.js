@@ -12,7 +12,10 @@ Proxy.prototype.getData	= function(key) {
 };
 
 Proxy.prototype.setData	= function(key, value) {
+	var oldValue	= this.data[key];
 	this.data[key]	= value;
+	if (oldValue != value)
+		this.sendNotification("DataPropertyChange", key);
 };
 
 //

@@ -20,6 +20,8 @@ Model.prototype.getProxy	= function(sName) {
 };
 
 Model.prototype.addProxy	= function(sName, oProxy) {
+	if (!(oProxy instanceof Proxy))
+		throw String(oProxy) + " is not instanceof Proxy";
+
 	this.proxies[sName]	= oProxy;
-	oProxy.model	= this;
 };
