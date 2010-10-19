@@ -99,10 +99,6 @@ MVC.prototype.registerMediator	= function(sName, oMediator) {
 };
 
 /* */
-MVC.prototype.init	= function() {
-
-};
-
 MVC.prototype.initController	= function() {
 
 };
