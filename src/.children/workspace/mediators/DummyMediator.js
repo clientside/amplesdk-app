@@ -5,7 +5,11 @@ Workspace.DummyMediator	= function() {
 Workspace.DummyMediator.prototype	= new MVC.Mediator;
 
 Workspace.DummyMediator.prototype.onRegister	= function() {
+	ample.query(this.element).bind("click", this);
+};
 
+Workspace.DummyMediator.prototype.onRemove		= function() {
+	ample.query(this.element).unbind("click", this);
 };
 
 Workspace.DummyMediator.prototype.handleNotification	= function(oNotification) {
