@@ -5,7 +5,7 @@ function Main() {
 
 Main.prototype	= new MVC;
 
-Main.prototype.initController	= function() {
+Main.prototype.initializeController	= function() {
 	// Register commands
 	this.registerCommand("_Ready",			Main._ReadyCommand);
 
@@ -16,14 +16,14 @@ Main.prototype.initController	= function() {
 	this.registerCommand("HideWorkspace",	Main.HideWorkspaceCommand);
 };
 
-Main.prototype.initModel	= function() {
+Main.prototype.initializeModel	= function() {
 	//
 	this.registerProxy("UserProxy", new Main.UserProxy(this, new Main.UserEntity));
 	// TODO: ???
 	this.retrieveProxy("UserProxy").getData().key	= "secret";
 };
 
-Main.prototype.initView		= function() {
+Main.prototype.initializeView		= function() {
 	// register mediators
 	this.registerMediator("LoginMediator", new Main.LoginMediator(this, ample.query("#Main-auth")[0]));
 };

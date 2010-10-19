@@ -7,11 +7,11 @@ MVC.StartupCommand.prototype	= new MVC.Command;
 MVC.StartupCommand.prototype.execute	= function(notification) {
 	// TODO: Make async
 	// 0:
-	this.facade.initController();
+	this.facade.initializeController();
 
 	// 1: prepare Model
 	//
-	this.facade.initModel();
+	this.facade.initializeModel();
 	//
 	for (var sName in this.facade.proxies)
 		if (this.facade.proxies.hasOwnProperty(sName))
@@ -19,7 +19,7 @@ MVC.StartupCommand.prototype.execute	= function(notification) {
 
 	// 2: prepare View
 	//
-	this.facade.initView();
+	this.facade.initializeView();
 	//
 	for (var sName in this.facade.mediators)
 		if (this.facade.mediators.hasOwnProperty(sName))

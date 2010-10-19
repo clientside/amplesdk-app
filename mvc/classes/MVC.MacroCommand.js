@@ -34,6 +34,6 @@ MVC.MacroCommand.prototype.execute	= function(notification) {
 	this.progress();
 };
 
-MVC.MacroCommand.prototype.initMacroCommand	= function() {
+MVC.MacroCommand.prototype.initializeMacroCommand	= function() {
 
 };

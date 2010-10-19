@@ -99,14 +99,14 @@ MVC.prototype.registerMediator	= function(sName, oMediator) {
 };
 
 /* */
-MVC.prototype.initController	= function() {
+MVC.prototype.initializeController	= function() {
 
 };
 
-MVC.prototype.initModel	= function() {
+MVC.prototype.initializeModel	= function() {
 
 };
 
-MVC.prototype.initView	= function() {
+MVC.prototype.initializeView	= function() {
 
 };
