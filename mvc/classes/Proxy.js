@@ -7,15 +7,15 @@ Proxy.prototype.model	= null;
 Proxy.prototype.data	= null;
 
 //
-Proxy.prototype.getData	= function(key) {
-	return this.data[key];
+Proxy.prototype.getData	= function() {
+	return this.data;
 };
 
-Proxy.prototype.setData	= function(key, value) {
-	var oldValue	= this.data[key];
-	this.data[key]	= value;
+Proxy.prototype.setData	= function(value) {
+	var oldValue	= this.data;
+	this.data	= value;
 	if (oldValue != value)
-		this.sendNotification("DataPropertyChange", key);
+		this.sendNotification("DataChange");
 };
 
 //

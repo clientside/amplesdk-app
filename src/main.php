@@ -6,6 +6,8 @@
 	$aFiles[]	= "Main.Model.js";
 	$aFiles[]	= "Main.View.js";
 	//
+	$aFiles[]	= "entities/UserEntity.js";
+	//
 	$aFiles[]	= "commands/_ReadyCommand.js";
 	$aFiles[]	= "commands/TryLoginCommand.js";
 	$aFiles[]	= "commands/TryLogoutCommand.js";

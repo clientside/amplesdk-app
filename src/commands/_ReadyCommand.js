@@ -6,7 +6,7 @@ Main._ReadyCommand.prototype	= new Command;
 
 Main._ReadyCommand.prototype.execute	= function() {
 	//
-	if (this.controller.model.getProxy("UserProxy").getData("key") == "secrets") {
+	if (this.controller.model.getProxy("UserProxy").getData().key == "secrets") {
 		this.controller.sendNotification("HideLogin");
 		this.controller.sendNotification("ShowWorkspace");
 	}
