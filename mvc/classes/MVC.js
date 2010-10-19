@@ -41,15 +41,15 @@ MVC.routeNotification	= function(oFacade, oNotification) {
 
 	//
 	if (oNotification.name == "Startup")
-		new MVC.StartupCommand(oFacade).execute();
+		new MVC.StartupCommand(oFacade).execute(oNotification);
 	else
 	if (oNotification.name == "Shutdown")
-		new MVC.ShutdownCommand(oFacade).execute();
+		new MVC.ShutdownCommand(oFacade).execute(oNotification);
 	else
 	if (oNotification.name in oFacade.commands)
 		for (var nIndex = 0, cCommand; cCommand = oFacade.commands[oNotification.name][nIndex]; nIndex++) {
 			console.warn("command: ", oNotification.name);
-			new cCommand(oFacade).execute();
+			new cCommand(oFacade).execute(oNotification);
 		}
 
 	// Pass notification to parent

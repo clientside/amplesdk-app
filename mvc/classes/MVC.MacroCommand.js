@@ -10,10 +10,8 @@ MVC.MacroCommand.prototype	= new MVC.Command;
 MVC.MacroCommand.prototype.parent	= null;
 MVC.MacroCommand.prototype.children	= null;
 MVC.MacroCommand.prototype.current	=-1;
-// Callbacks
-MVC.MacroCommand.prototype.success	= null;
-MVC.MacroCommand.prototype.failure	= null;
 
+// Hierarchy
 MVC.MacroCommand.prototype.addChild	= function(command) {
 	var nIndex	= this.children.indexOf(command);
 	if (nIndex < 0) {
@@ -28,17 +26,14 @@ MVC.Command.prototype.removeChild	= function(command) {
 		this.children	= this.children.slice(0, nIndex).concat(this.children.slice(nIndex + 1));
 };
 */
-
-MVC.MacroCommand.prototype.execute	= function(success, failure) {
-	this.success	= success;
-	this.failure	= failure;
+MVC.MacroCommand.prototype.execute	= function(notification) {
+	this.progress	= function() {
+		if (++this.current < this.children.length)
+			this.children[this.current].execute(notification);
+	};
 	this.progress();
 };
 
-MVC.MacroCommand.prototype.progress	= function() {
-	if (this.current < this.children.length)
-		this.children[this.current++].execute();
-	else
-	if (this.success)
-		this.success();
+MVC.MacroCommand.prototype.initMacroCommand	= function() {
+
 };

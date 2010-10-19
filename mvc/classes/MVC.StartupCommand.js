@@ -4,7 +4,7 @@ MVC.StartupCommand	= function() {
 
 MVC.StartupCommand.prototype	= new MVC.Command;
 
-MVC.StartupCommand.prototype.execute	= function() {
+MVC.StartupCommand.prototype.execute	= function(notification) {
 	// TODO: Make async
 	// 0:
 	this.facade.initController();
@@ -27,7 +27,7 @@ MVC.StartupCommand.prototype.execute	= function() {
 
 	// Process children
 	for (var n = 0, l = this.facade.children.length; n < l; n++)
-		new MVC.StartupCommand(this.facade.children[n]).execute();
+		new MVC.StartupCommand(this.facade.children[n]).execute(notification);
 	//
 	this.facade.sendNotification("_Ready");
 };
