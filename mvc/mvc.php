@@ -8,6 +8,8 @@
 	$aFiles[]	= "classes/MVC.Notification.js";
 	$aFiles[]	= "classes/MVC.Proxy.js";
 	//
+	$aFiles[]	= "classes/MVC.MacroCommand.js";
+	//
 	$aFiles[]	= "classes/MVC.StartupCommand.js";
 	$aFiles[]	= "classes/MVC.ShutdownCommand.js";
 
