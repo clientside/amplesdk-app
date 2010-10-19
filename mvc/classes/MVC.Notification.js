@@ -1,7 +1,7 @@
-MVC.Notification	= function(name, detail) {
+MVC.Notification	= function(name, body) {
 	this.name	= name;
-	this.detail	= detail;
+	this.body	= body;
 };
 
-MVC.Notification.prototype.name		= null;
-MVC.Notification.prototype.detail	= null;
+MVC.Notification.prototype.name	= null;
+MVC.Notification.prototype.body	= null;
