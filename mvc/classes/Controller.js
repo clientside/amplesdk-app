@@ -68,9 +68,9 @@ Controller.routeNotification	= function(oController, oNotification) {
 	}
 };
 
-Controller.prototype.sendNotification	= function(sNotification) {
+Controller.prototype.sendNotification	= function(sNotification, oDetail) {
 console.info("notification: ", sNotification);
-	Controller.routeNotification(this, new Notification(sNotification));
+	Controller.routeNotification(this, new Notification(sNotification, oDetail));
 };
 
 //

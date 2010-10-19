@@ -1,7 +1,7 @@
-function Notification(name, target) {
+function Notification(name, detail) {
 	this.name	= name;
-	this.target	= target;
+	this.detail	= detail;
 };
 
 Notification.prototype.name		= null;
-Notification.prototype.target	= null;
+Notification.prototype.detail	= null;

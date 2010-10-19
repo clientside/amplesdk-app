@@ -19,9 +19,9 @@ Proxy.prototype.setData	= function(key, value) {
 };
 
 //
-Proxy.prototype.sendNotification	= function(sNotification) {
+Proxy.prototype.sendNotification	= function(sNotification, oDetail) {
 	// Forward notification to controller
-	this.model.controller.sendNotification(sNotification);
+	this.model.controller.sendNotification(sNotification, oDetail);
 };
 
 Proxy.prototype.onRegister	= function() {

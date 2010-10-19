@@ -4,9 +4,9 @@ function Mediator(view) {
 
 Mediator.prototype.view	= null;
 
-Mediator.prototype.sendNotification	= function(sNotification) {
+Mediator.prototype.sendNotification	= function(sNotification, oDetail) {
 	// Forward notification to controller
-	this.view.controller.sendNotification(sNotification);
+	this.view.controller.sendNotification(sNotification, oDetail);
 };
 
 //
