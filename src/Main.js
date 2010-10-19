@@ -19,8 +19,6 @@ Main.prototype.initializeController	= function() {
 Main.prototype.initializeModel	= function() {
 	//
 	this.registerProxy("UserProxy", new Main.UserProxy(this, new Main.UserEntity));
-	// TODO: ???
-	this.retrieveProxy("UserProxy").getData().key	= "secret";
 };
 
 Main.prototype.initializeView		= function() {
