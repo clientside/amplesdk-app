@@ -2,7 +2,7 @@ MVC.StartupCommand	= function() {
 	MVC.Command.apply(this, arguments);
 };
 
-MVC.StartupCommand.prototype	= new MVC.Command;
+MVC.StartupCommand.prototype	= new MVC.Command(null);
 
 MVC.StartupCommand.prototype.execute	= function(notification) {
 	// TODO: Make async

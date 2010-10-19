@@ -4,7 +4,7 @@ MVC.MacroCommand	= function() {
 	this.children	= [];
 };
 
-MVC.MacroCommand.prototype	= new MVC.Command;
+MVC.MacroCommand.prototype	= new MVC.Command(null);
 
 //
 MVC.MacroCommand.prototype.parent	= null;

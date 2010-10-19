@@ -2,7 +2,7 @@ MVC.ShutdownCommand	= function() {
 	MVC.Command.apply(this, arguments);
 };
 
-MVC.ShutdownCommand.prototype	= new MVC.Command;
+MVC.ShutdownCommand.prototype	= new MVC.Command(null);
 
 MVC.ShutdownCommand.prototype.execute	= function(notification) {
 	// TODO: Make async
