@@ -22,8 +22,8 @@ MVC.MacroCommand.prototype.addChild	= function(command) {
 	}
 };
 /*
-MVC.Command.prototype.removeChild	= function(oMvc) {
-	var nIndex	= this.children.indexOf(oController);
+MVC.Command.prototype.removeChild	= function(command) {
+	var nIndex	= this.children.indexOf(command);
 	if (nIndex >-1)
 		this.children	= this.children.slice(0, nIndex).concat(this.children.slice(nIndex + 1));
 };

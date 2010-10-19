@@ -14,10 +14,10 @@ MVC.prototype.proxies	= null;
 MVC.prototype.mediators	= null;
 
 // Hierarchy
-MVC.prototype.addChild		= function(sName, oMvc) {
-	this.children.push(oMvc);
-	this.children[sName]	= oMvc;
-	oMvc.parent	= this;
+MVC.prototype.addChild		= function(sName, oFacade) {
+	this.children.push(oFacade);
+	this.children[sName]	= oFacade;
+	oFacade.parent	= this;
 };
 
 MVC.prototype.getChild		= function(sName) {
@@ -25,7 +25,7 @@ MVC.prototype.getChild		= function(sName) {
 };
 
 /*
-MVC.prototype.removeChild	= function(oMvc) {
+MVC.prototype.removeChild	= function(oFacade) {
 	if (this.children.hasOwnProperty(sName)) {
 		this.children[sName].parent	= null;
 		delete this.children[sName];
@@ -34,29 +34,29 @@ MVC.prototype.removeChild	= function(oMvc) {
 */
 
 // Notifications
-MVC.routeNotification	= function(oMvc, oNotification) {
-	for (var sName in oMvc.mediators)
-		if (oMvc.mediators.hasOwnProperty(sName))
-			oMvc.mediators[sName].handleNotification(oNotification);
+MVC.routeNotification	= function(oFacade, oNotification) {
+	for (var sName in oFacade.mediators)
+		if (oFacade.mediators.hasOwnProperty(sName))
+			oFacade.mediators[sName].handleNotification(oNotification);
 
 	//
 	if (oNotification.name == "Startup")
-		new MVC.StartupCommand(oMvc).execute();
+		new MVC.StartupCommand(oFacade).execute();
 	else
 	if (oNotification.name == "Shutdown")
-		new MVC.ShutdownCommand(oMvc).execute();
+		new MVC.ShutdownCommand(oFacade).execute();
 	else
-	if (oNotification.name in oMvc.commands)
-		for (var nIndex = 0, cCommand; cCommand = oMvc.commands[oNotification.name][nIndex]; nIndex++) {
+	if (oNotification.name in oFacade.commands)
+		for (var nIndex = 0, cCommand; cCommand = oFacade.commands[oNotification.name][nIndex]; nIndex++) {
 			console.warn("command: ", oNotification.name);
-			new cCommand(oMvc).execute();
+			new cCommand(oFacade).execute();
 		}
 
 	// Pass notification to parent
-	if (oMvc.parent) {
-		oNotification.name	= oMvc.name + ':' + oNotification.name;
+	if (oFacade.parent) {
+		oNotification.name	= oFacade.name + ':' + oNotification.name;
 		console.info("notification (routing): ", oNotification.name);
-		MVC.routeNotification(oMvc.parent, oNotification);
+		MVC.routeNotification(oFacade.parent, oNotification);
 	}
 };
 
