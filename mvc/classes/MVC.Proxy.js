@@ -1,5 +1,5 @@
-MVC.Proxy	= function(mvc) {
-	this.facade	= mvc;
+MVC.Proxy	= function(facade) {
+	this.facade	= facade;
 	this.data	= {};
 };
 

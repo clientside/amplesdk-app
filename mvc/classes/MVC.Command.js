@@ -1,5 +1,5 @@
-MVC.Command	= function(mvc) {
-	this.facade	= mvc;
+MVC.Command	= function(facade) {
+	this.facade	= facade;
 };
 
 //
