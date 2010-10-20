@@ -1,7 +1,5 @@
 Workspace.DataProxy	= function() {
 	MVC.Proxy.apply(this, arguments);
-	//
-	this.data	= new Array;
 };
 
 Workspace.DataProxy.prototype	= new MVC.Proxy;
