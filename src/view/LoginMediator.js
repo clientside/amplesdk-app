@@ -57,7 +57,8 @@ Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 			case "Main-login-form-submit":
 				this.sendNotification("TryLogin", new Main.LoginEntity(
 															ample.query("#Main-login-form-name", this.element).attr("value"),
-															ample.query("#Main-login-form-pass", this.element).attr("value")
+															ample.query("#Main-login-form-pass", this.element).attr("value"),
+															ample.query("#Main-login-form-remember", this.element).attr("checked") == "true"
 													));
 				break;
 

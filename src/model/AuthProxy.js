@@ -21,7 +21,8 @@ Main.AuthProxy.prototype.login	= function(/* LoginEntity */login) {
 					else {
 						that.data.token	= response;
 						// Save token to cookie
-//						ample.cookie("token", that.data.token);
+//						if (login.remeber)
+//							ample.cookie("token", that.data.token);
 						that.sendNotification("LoginSuccess");
 					}
 				}

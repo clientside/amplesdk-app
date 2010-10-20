@@ -17,6 +17,10 @@
 					</xul:row>
 					<xul:row>
 						<xul:label />
+						<xul:checkbox id="Main-login-form-remember" label="Remember me" checked="true"/>
+					</xul:row>
+					<xul:row>
+						<xul:label />
 						<xul:button id="Main-login-form-submit" label="Login" />
 					</xul:row>
 				</xul:rows>
