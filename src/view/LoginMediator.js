@@ -40,20 +40,14 @@ Main.LoginMediator.prototype.handleNotification	= function(oNotification) {
 Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 	if (oEvent.type == "change") {
 		switch (oEvent.target.getAttribute("id")) {
-			case "Main-login-form-name":
-				this.facade.retrieveProxy("UserProxy").setData("name", oEvent.target.getAttribute("value"));
-				break;
 
-			case "Main-login-form-pass":
-				this.facade.retrieveProxy("UserProxy").setData("pass", oEvent.target.getAttribute("value"));
-				break;
 		}
 	}
 	else
 	if (oEvent.type == "DOMActivate") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Main-login-form-submit":
-				this.sendNotification("TryLogin");
+				this.sendNotification("TryLogin", new Main.UserEntity(ample.query("#Main-login-form-name", this.element).attr("value"), ample.query("#Main-login-form-pass", this.element).attr("value")));
 				break;
 
 			case "Main-logout-button":

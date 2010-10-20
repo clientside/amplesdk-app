@@ -4,7 +4,8 @@ Main.TryLoginCommand	= function() {
 
 Main.TryLoginCommand.prototype	= new MVC.Command;
 
-Main.TryLoginCommand.prototype.execute	= function() {
+Main.TryLoginCommand.prototype.execute	= function(notification) {
+	console.log(notification)
 	var that = this;
 	setTimeout(function() {
 		that.sendNotification("LoginSuccess");

@@ -6,9 +6,10 @@
 	//
 	$aFiles[]	= "controller/_ReadyCommand.js";
 	//
-	$aFiles[]	= "view/DummyMediator.js";
+	$aFiles[]	= "view/DataListMediator.js";
+	$aFiles[]	= "view/DataItemFormMediator.js";
 	//
-	$aFiles[]	= "model/entities/DataItem.js";
+	$aFiles[]	= "model/entities/DataItemEntity.js";
 	$aFiles[]	= "model/DataProxy.js";
 
 	$sOutput	= "";

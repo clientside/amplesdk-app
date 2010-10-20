@@ -1,9 +1,36 @@
 <?xml version="1.0"?>
-<div id="Workspace" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<div id="Workspace-dummy">
-		This is workspace content
-	</div>
-	<div id="Workspace$children">
+<xul:vbox id="Workspace" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<xul:vbox id="Workspace-dummy">
+		<xul:listbox id="Workspace-datalist">
+			<xul:listhead>
+				<xul:listheader label="id" />
+				<xul:listheader label="Name" />
+				<xul:listheader label="Description" />
+			</xul:listhead>
+			<xul:listbody />
+		</xul:listbox>
+		<xul:grid id="Workspace-dataitem-form">
+			<xul:columns>
+				<xul:column width="100"/>
+				<xul:column />
+			</xul:columns>
+			<xul:rows>
+				<xul:row>
+					<xul:label width="100" value="Name" />
+					<xul:textbox name="name" />
+				</xul:row>
+				<xul:row>
+					<xul:label value="Description" />
+					<xul:textbox name="description" />
+				</xul:row>
+				<xul:row>
+					<xul:label />
+					<xul:button label="Update" name="save"/>
+				</xul:row>
+			</xul:rows>
+		</xul:grid>
+	</xul:vbox>
+	<xul:box id="Workspace$children">
 
-	</div>
-</div>
+	</xul:box>
+</xul:vbox>

@@ -10,7 +10,6 @@ Main.ShowWorkspaceCommand.prototype.execute	= function() {
 		oWorkspace	= oFacade.getChild("Workspace");
 	if (oWorkspace) {
 		oWorkspace.sendNotification("Show");
-		this.sendNotification("ShowLogout");
 	}
 	else {
 //		ample.get("src/.children/workspace/view/style/workspace.css", null, function(sCss) {
@@ -23,8 +22,6 @@ Main.ShowWorkspaceCommand.prototype.execute	= function() {
 					oFacade.addChild("Workspace", oWorkspace);
 					//
 					oWorkspace.sendNotification("Startup");
-					//
-					that.sendNotification("ShowLogout");
 				});
 //			});
 //		});
