@@ -6,7 +6,7 @@ Main._ReadyCommand.prototype	= new MVC.Command;
 
 Main._ReadyCommand.prototype.execute	= function() {
 	//
-	if (this.facade.retrieveProxy("UserProxy").getData().token == "secrets") {
+	if (this.facade.retrieveProxy("AuthProxy").isAuthenticated()) {
 		this.facade.sendNotification("HideLogin");
 		this.facade.sendNotification("ShowWorkspace");
 	}

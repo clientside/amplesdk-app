@@ -14,8 +14,9 @@
 	//
 	$aFiles[]	= "view/LoginMediator.js";
 	//
-	$aFiles[]	= "model/entities/UserEntity.js";
-	$aFiles[]	= "model/UserProxy.js";
+	$aFiles[]	= "model/entities/AuthEntity.js";
+	$aFiles[]	= "model/entities/LoginEntity.js";
+	$aFiles[]	= "model/AuthProxy.js";
 
 	$sOutput	= "";
 	for ($nIndex = 0; $nIndex < count($aFiles); $nIndex++)

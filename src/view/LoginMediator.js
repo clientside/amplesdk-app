@@ -22,15 +22,23 @@ Main.LoginMediator.prototype.handleNotification	= function(oNotification) {
 			ample.query("#Main-logout").show();
 			break;
 
+		case "TryLogout":
+			ample.query("#Main-logout-button", this.element).attr("disabled", "true");
+			break;
+
+		case "LogoutFailure":
+		case "LogoutSuccess":
+			ample.query("#Main-logout-button", this.element).attr("disabled", null);
+			ample.query("#Main-logout-button", this.element).attr("disabled", null);
+			break;
+
 		case "TryLogin":
 			ample.query("#Main-login-form-submit", this.element).attr("disabled", "true");
 			break;
 
-		case "LoginFailed":
-			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
-			break;
-
+		case "LoginFailure":
 		case "LoginSuccess":
+			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
 			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
 			break;
 
@@ -47,7 +55,10 @@ Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 	if (oEvent.type == "DOMActivate") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Main-login-form-submit":
-				this.sendNotification("TryLogin", new Main.UserEntity(ample.query("#Main-login-form-name", this.element).attr("value"), ample.query("#Main-login-form-pass", this.element).attr("value")));
+				this.sendNotification("TryLogin", new Main.LoginEntity(
+															ample.query("#Main-login-form-name", this.element).attr("value"),
+															ample.query("#Main-login-form-pass", this.element).attr("value")
+													));
 				break;
 
 			case "Main-logout-button":

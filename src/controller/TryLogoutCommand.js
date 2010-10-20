@@ -5,8 +5,5 @@ Main.TryLogoutCommand	= function() {
 Main.TryLogoutCommand.prototype	= new MVC.Command;
 
 Main.TryLogoutCommand.prototype.execute	= function() {
-	var that = this;
-	setTimeout(function() {
-		that.sendNotification("LogoutSuccess");
-	}, 500);
+	this.facade.retrieveProxy("AuthProxy").logout();
 };

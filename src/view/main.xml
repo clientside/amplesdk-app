@@ -4,11 +4,11 @@
 		<xul:box id="Main-logout" style="display:none">
 			<xul:button id="Main-logout-button" label="Logout" />
 		</xul:box>
-		<xul:box id="Main-login" style="display:none">
+		<xul:vbox id="Main-login" style="display:none">
 			<xul:grid id="Main-login-form">
 				<xul:rows>
 					<xul:row>
-						<xul:label value="Login" />
+						<xul:label width="100" value="Login" />
 						<xul:textbox id="Main-login-form-name" />
 					</xul:row>
 					<xul:row>
@@ -21,7 +21,8 @@
 					</xul:row>
 				</xul:rows>
 			</xul:grid>
-		</xul:box>
+			<xul:description id="Main-login-error">Please enter details</xul:description>
+		</xul:vbox>
 	</xul:vbox>
 	<xul:vbox id="Main$children" flex="1">
 

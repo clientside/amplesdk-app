@@ -21,7 +21,7 @@ Main.prototype.initializeController	= function() {
 
 Main.prototype.initializeModel	= function() {
 	//
-	this.registerProxy("UserProxy", new Main.UserProxy(new Main.UserEntity));
+	this.registerProxy("AuthProxy", new Main.AuthProxy(new Main.AuthEntity));
 };
 
 Main.prototype.initializeView		= function() {
