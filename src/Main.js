@@ -12,6 +12,9 @@ Main.prototype.initializeController	= function() {
 	this.registerCommand("TryLogin",		Main.TryLoginCommand);
 	this.registerCommand("TryLogout",		Main.TryLogoutCommand);
 
+	this.registerCommand("LoginSuccess",	Main.LoginSuccessCommand);
+	this.registerCommand("LogoutSuccess",	Main.LogoutSuccessCommand);
+
 	this.registerCommand("ShowWorkspace",	Main.ShowWorkspaceCommand);
 	this.registerCommand("HideWorkspace",	Main.HideWorkspaceCommand);
 };

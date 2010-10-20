@@ -7,6 +7,8 @@
 	$aFiles[]	= "controller/_ReadyCommand.js";
 	$aFiles[]	= "controller/TryLoginCommand.js";
 	$aFiles[]	= "controller/TryLogoutCommand.js";
+	$aFiles[]	= "controller/LoginSuccessCommand.js";
+	$aFiles[]	= "controller/LogoutSuccessCommand.js";
 	$aFiles[]	= "controller/ShowWorkspaceCommand.js";
 	$aFiles[]	= "controller/HideWorkspaceCommand.js";
 	//
