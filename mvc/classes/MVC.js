@@ -46,11 +46,10 @@ MVC.routeNotification	= function(oFacade, oNotification) {
 	if (oNotification.name == "Shutdown")
 		new MVC.ShutdownCommand(oFacade).execute(oNotification);
 	else
-	if (oNotification.name in oFacade.commands)
-		for (var nIndex = 0, cCommand; cCommand = oFacade.commands[oNotification.name][nIndex]; nIndex++) {
-			console.warn("command: ", oNotification.name);
-			new cCommand(oFacade).execute(oNotification);
-		}
+	if (oFacade.commands.hasOwnProperty(oNotification.name)) {
+		console.warn("command: ", oNotification.name);
+		new oFacade.commands[oNotification.name](oFacade).execute(oNotification);
+	}
 
 	// Pass notification to parent
 	if (oFacade.parent) {
@@ -66,22 +65,29 @@ console.info("notification: ", sNotification);
 };
 
 // Commands
-MVC.prototype.registerCommand	= function(sNotification, cCommand) {
-	if (!(cCommand.prototype instanceof MVC.Command))
-		throw String(cCommand) + " is not instanceof MVC.Command";
-
-	if (!(sNotification in this.commands))
-		this.commands[sNotification]	= [];
-	this.commands[sNotification].push(cCommand);
+MVC.prototype.hasCommand	= function(sNotification) {
+	return this.commands.hasOwnProperty(sNotification);
 };
 
+MVC.prototype.registerCommand	= function(sNotification, cCommand) {
+	if (!(cCommand.prototype instanceof MVC.Command))
+		throw "Type Error: " + String(cCommand) + " is not instanceof MVC.Command";
+
+	this.commands[sNotification]	= cCommand;
+};
+
+MVC.prototype.removeCommand	= function(sNotification) {
+	delete this.commands[sNotification];
+};
+
+// Proxies
 MVC.prototype.retrieveProxy	= function(sName) {
 	return this.proxies.hasOwnProperty(sName) ? this.proxies[sName] : null;
 };
 
 MVC.prototype.registerProxy	= function(sName, oProxy) {
 	if (!(oProxy instanceof MVC.Proxy))
-		throw String(oProxy) + " is not instanceof MVC.Proxy";
+		throw "Type Error: " + String(oProxy) + " is not instanceof MVC.Proxy";
 
 	this.proxies[sName]	= oProxy;
 };
@@ -93,7 +99,7 @@ MVC.prototype.retrieveMediator	= function(sName) {
 
 MVC.prototype.registerMediator	= function(sName, oMediator) {
 	if (!(oMediator instanceof MVC.Mediator))
-		throw String(oMediator) + " is not instanceof MVC.Mediator";
+		throw "Type Error: " + String(oMediator) + " is not instanceof MVC.Mediator";
 
 	this.mediators[sName]	= oMediator;
 };
