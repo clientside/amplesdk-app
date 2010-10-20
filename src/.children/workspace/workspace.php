@@ -5,6 +5,9 @@
 	$aFiles[]	= "Workspace.js";
 	//
 	$aFiles[]	= "controller/_ReadyCommand.js";
+	$aFiles[]	= "controller/AddDataItemCommand.js";
+	$aFiles[]	= "controller/DeleteDataItemCommand.js";
+	$aFiles[]	= "controller/UpdateDataItemCommand.js";
 	//
 	$aFiles[]	= "view/DataListMediator.js";
 	$aFiles[]	= "view/DataItemFormMediator.js";

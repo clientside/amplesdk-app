@@ -4,6 +4,6 @@ Workspace._ReadyCommand	= function() {
 
 Workspace._ReadyCommand.prototype	= new MVC.Command;
 
-Workspace._ReadyCommand.prototype.execute	= function() {
+Workspace._ReadyCommand.prototype.execute	= function(notification) {
 
 };

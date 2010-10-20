@@ -8,6 +8,10 @@ Workspace.prototype	= new MVC;
 Workspace.prototype.initializeController	= function() {
 	// Register commands
 	this.registerCommand("_Ready",	Workspace._ReadyCommand);
+	//
+	this.registerCommand("AddDataItem",	Workspace.AddDataItemCommand);
+	this.registerCommand("DeleteDataItem",	Workspace.DeleteDataItemCommand);
+	this.registerCommand("UpdateDataItem",	Workspace.UpdateDataItemCommand);
 };
 
 Workspace.prototype.initializeModel	= function() {
