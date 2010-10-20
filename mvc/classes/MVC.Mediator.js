@@ -1,5 +1,4 @@
-MVC.Mediator	= function(facade, element) {
-	this.facade		= facade;
+MVC.Mediator	= function(element) {
 	this.element	= element;
 };
 

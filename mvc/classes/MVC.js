@@ -90,6 +90,7 @@ MVC.prototype.registerProxy	= function(sName, oProxy) {
 		throw "Type Error: " + String(oProxy) + " is not instanceof MVC.Proxy";
 
 	this.proxies[sName]	= oProxy;
+	oProxy.facade	= this;
 };
 
 // Mediators
@@ -102,6 +103,7 @@ MVC.prototype.registerMediator	= function(sName, oMediator) {
 		throw "Type Error: " + String(oMediator) + " is not instanceof MVC.Mediator";
 
 	this.mediators[sName]	= oMediator;
+	oMediator.facade	= this;
 };
 
 /* */

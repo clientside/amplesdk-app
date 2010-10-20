@@ -16,11 +16,11 @@ Workspace.prototype.initializeController	= function() {
 
 Workspace.prototype.initializeModel	= function() {
 	// Register proxies
-	this.registerProxy("DataProxy", new Workspace.DataProxy);
+	this.registerProxy("DataProxy", new Workspace.DataProxy(new Array()));
 };
 
 Workspace.prototype.initializeView	= function() {
 	// Register mediators
-	this.registerMediator("DataListMediator", new Workspace.DataListMediator(this, ample.query("#Workspace-datalist")[0]));
-	this.registerMediator("DataItemFormMediator", new Workspace.DataItemFormMediator(this, ample.query("#Workspace-dataitem-form")[0]));
+	this.registerMediator("DataListMediator", new Workspace.DataListMediator(ample.query("#Workspace-datalist")[0]));
+	this.registerMediator("DataItemFormMediator", new Workspace.DataItemFormMediator(ample.query("#Workspace-dataitem-form")[0]));
 };

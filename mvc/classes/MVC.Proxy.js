@@ -1,6 +1,6 @@
-MVC.Proxy	= function(facade) {
-	this.facade	= facade;
-	this.data	= {};
+MVC.Proxy	= function(data) {
+	if (arguments.length)
+		this.data	= data;
 };
 
 MVC.Proxy.prototype.facade	= null;

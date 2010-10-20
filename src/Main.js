@@ -21,10 +21,10 @@ Main.prototype.initializeController	= function() {
 
 Main.prototype.initializeModel	= function() {
 	//
-	this.registerProxy("UserProxy", new Main.UserProxy(this, new Main.UserEntity));
+	this.registerProxy("UserProxy", new Main.UserProxy(new Main.UserEntity));
 };
 
 Main.prototype.initializeView		= function() {
 	// register mediators
-	this.registerMediator("LoginMediator", new Main.LoginMediator(this, ample.query("#Main-auth")[0]));
+	this.registerMediator("LoginMediator", new Main.LoginMediator(ample.query("#Main-auth")[0]));
 };
