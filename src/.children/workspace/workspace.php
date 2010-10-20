@@ -4,11 +4,12 @@
 	// Classes
 	$aFiles[]	= "Workspace.js";
 	//
-	$aFiles[]	= "commands/_ReadyCommand.js";
+	$aFiles[]	= "controller/_ReadyCommand.js";
 	//
-	$aFiles[]	= "mediators/DummyMediator.js";
+	$aFiles[]	= "view/DummyMediator.js";
 	//
-	$aFiles[]	= "proxies/DataProxy.js";
+	$aFiles[]	= "model/entities/DataItem.js";
+	$aFiles[]	= "model/DataProxy.js";
 
 	$sOutput	= "";
 	for ($nIndex = 0; $nIndex < count($aFiles); $nIndex++)

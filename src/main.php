@@ -4,17 +4,16 @@
 	// Classes
 	$aFiles[]	= "Main.js";
 	//
-	$aFiles[]	= "entities/UserEntity.js";
+	$aFiles[]	= "controller/_ReadyCommand.js";
+	$aFiles[]	= "controller/TryLoginCommand.js";
+	$aFiles[]	= "controller/TryLogoutCommand.js";
+	$aFiles[]	= "controller/ShowWorkspaceCommand.js";
+	$aFiles[]	= "controller/HideWorkspaceCommand.js";
 	//
-	$aFiles[]	= "commands/_ReadyCommand.js";
-	$aFiles[]	= "commands/TryLoginCommand.js";
-	$aFiles[]	= "commands/TryLogoutCommand.js";
-	$aFiles[]	= "commands/ShowWorkspaceCommand.js";
-	$aFiles[]	= "commands/HideWorkspaceCommand.js";
+	$aFiles[]	= "view/LoginMediator.js";
 	//
-	$aFiles[]	= "mediators/LoginMediator.js";
-	//
-	$aFiles[]	= "proxies/UserProxy.js";
+	$aFiles[]	= "model/entities/UserEntity.js";
+	$aFiles[]	= "model/UserProxy.js";
 
 	$sOutput	= "";
 	for ($nIndex = 0; $nIndex < count($aFiles); $nIndex++)

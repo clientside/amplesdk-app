@@ -13,9 +13,9 @@ Main.ShowWorkspaceCommand.prototype.execute	= function() {
 		this.sendNotification("ShowLogout");
 	}
 	else {
-//		ample.get("res/.children/workspace/workspace.css", null, function(sCss) {
+//		ample.get("src/.children/workspace/view/style/workspace.css", null, function(sCss) {
 //			ample.get("src/.children/workspace/workspace.js", null, function(sJavaScript) {
-				ample.get("res/.children/workspace/workspace.xml", null, function(oDocument) {
+				ample.get("src/.children/workspace/view/workspace.xml", null, function(oDocument) {
 					var oView	= ample.importNode(oDocument.documentElement, true);
 					ample.query("#Main$children")[0].appendChild(oView);
 
