@@ -1,35 +1,35 @@
 MVC.MacroCommand	= function() {
 	MVC.Command.apply(this, arguments);
 	//
-	this.children	= [];
+	this.subCommands	= [];
 };
 
 MVC.MacroCommand.prototype	= new MVC.Command(null);
 
 //
-MVC.MacroCommand.prototype.parent	= null;
-MVC.MacroCommand.prototype.children	= null;
-MVC.MacroCommand.prototype.current	=-1;
+MVC.MacroCommand.prototype.parent		= null;
+MVC.MacroCommand.prototype.subCommands	= null;
+MVC.MacroCommand.prototype.current		=-1;
 
 // Hierarchy
-MVC.MacroCommand.prototype.addChild	= function(command) {
-	var nIndex	= this.children.indexOf(command);
+MVC.MacroCommand.prototype.addSubCommand	= function(command) {
+	var nIndex	= this.subCommands.indexOf(command);
 	if (nIndex < 0) {
-		this.children.push(command);
+		this.subCommands.push(command);
 		command.parent	= this;
 	}
 };
 /*
-MVC.Command.prototype.removeChild	= function(command) {
+MVC.Command.prototype.removeSubCommand	= function(command) {
 	var nIndex	= this.children.indexOf(command);
 	if (nIndex >-1)
-		this.children	= this.children.slice(0, nIndex).concat(this.children.slice(nIndex + 1));
+		this.subCommands	= this.subCommands.slice(0, nIndex).concat(this.subCommands.slice(nIndex + 1));
 };
 */
 MVC.MacroCommand.prototype.execute	= function(notification) {
 	this.progress	= function() {
 		if (++this.current < this.children.length)
-			this.children[this.current].execute(notification);
+			this.subCommands[this.current].execute(notification);
 	};
 	this.progress();
 };
