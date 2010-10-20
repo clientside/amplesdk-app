@@ -5,7 +5,8 @@ Main.AuthProxy	= function() {
 Main.AuthProxy.prototype	= new MVC.Proxy;
 
 Main.AuthProxy.prototype.onRegister	= function() {
-
+	// Read token from cookie
+//	that.data.token	= ample.cookie("token");
 };
 
 Main.AuthProxy.prototype.login	= function(/* LoginEntity */login) {
@@ -19,6 +20,8 @@ Main.AuthProxy.prototype.login	= function(/* LoginEntity */login) {
 						that.sendNotification("LoginFailure");
 					else {
 						that.data.token	= response;
+						// Save token to cookie
+//						ample.cookie("token", that.data.token);
 						that.sendNotification("LoginSuccess");
 					}
 				}
@@ -32,6 +35,8 @@ Main.AuthProxy.prototype.logout	= function() {
 			that.sendNotification("LogoutFailure");
 		else {
 			that.data.token	= "";
+			//
+//			ample.cookie("token", null);
 			that.sendNotification("LogoutSuccess");
 		}
 	});
