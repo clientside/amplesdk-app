@@ -9,15 +9,15 @@
 				<xul:rows>
 					<xul:row>
 						<xul:label width="100" value="Login" />
-						<xul:textbox id="Main-login-form-name" />
+						<xul:textbox name="login" />
 					</xul:row>
 					<xul:row>
 						<xul:label value="Password" />
-						<xul:textbox id="Main-login-form-pass" type="password"/>
+						<xul:textbox name="password" type="password"/>
 					</xul:row>
 					<xul:row>
 						<xul:label />
-						<xul:checkbox id="Main-login-form-remember" label="Remember me" checked="true"/>
+						<xul:checkbox name="remember" label="Remember me" checked="true"/>
 					</xul:row>
 					<xul:row>
 						<xul:label />
