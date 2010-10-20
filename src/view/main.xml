@@ -21,7 +21,7 @@
 					</xul:row>
 				</xul:rows>
 			</xul:grid>
-			<xul:description id="Main-login-error">Please enter details</xul:description>
+			<xul:description id="Main-login-error" value=""/>
 		</xul:vbox>
 	</xul:vbox>
 	<xul:vbox id="Main$children" flex="1">
