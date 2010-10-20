@@ -5,5 +5,5 @@ Main.UserProxy	= function() {
 Main.UserProxy.prototype	= new MVC.Proxy;
 
 Main.UserProxy.prototype.onRegister	= function() {
-	this.getData().key	= "secret";
+	this.getData().token	= "secret";
 };
