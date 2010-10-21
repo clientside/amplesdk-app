@@ -5,5 +5,5 @@ Workspace.CreateDataItemCommand	= function() {
 Workspace.CreateDataItemCommand.prototype	= new MVC.Command;
 
 Workspace.CreateDataItemCommand.prototype.execute	= function(notification) {
-
+	alert('create');return;
 };

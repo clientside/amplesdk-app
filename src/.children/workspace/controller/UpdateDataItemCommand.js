@@ -5,5 +5,5 @@ Workspace.UpdateDataItemCommand	= function() {
 Workspace.UpdateDataItemCommand.prototype	= new MVC.Command;
 
 Workspace.UpdateDataItemCommand.prototype.execute	= function(notification) {
-
+	alert('update');return;
 };

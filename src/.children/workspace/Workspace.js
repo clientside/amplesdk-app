@@ -23,5 +23,5 @@ Workspace.prototype.initializeView	= function() {
 	// Register mediators
 	this.registerMediator("ToolbarMediator", new Workspace.ToolbarMediator(ample.query("#Workspace-toolbar")[0]));
 	this.registerMediator("DataListMediator", new Workspace.DataListMediator(ample.query("#Workspace-datalist")[0]));
-	this.registerMediator("DataItemFormMediator", new Workspace.DataItemFormMediator(ample.query("#Workspace-dataitem-form")[0]));
+	this.registerMediator("DataItemFormMediator", new Workspace.DataItemFormMediator(ample.query("#Workspace-dataitemform")[0]));
 };

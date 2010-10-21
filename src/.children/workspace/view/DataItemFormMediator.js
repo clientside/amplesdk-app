@@ -6,16 +6,16 @@ Workspace.DataItemFormMediator.prototype	= new MVC.Mediator;
 
 Workspace.DataItemFormMediator.prototype.onRegister	= function() {
 	ample.query("xul|textbox[name=name], xul|textbox[name=description]", this.element).bind("change", this);
-	ample.query("xul|button[name=save]", this.element).bind("DOMActivate", this);
+	ample.query("#Workspace-dataitemform-save, #Workspace-dataitemform-reset", this.element).bind("DOMActivate", this);
 };
 
 Workspace.DataItemFormMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
 		case "SelectionChange":
-			if (oNotification.body)
-				ample.query(this.element).attr("hidden", null);
-			else
-				ample.query(this.element).attr("hidden", "true");
+			var oItem	= oNotification.body;
+			ample.query(this.element).attr("hidden", oItem ? null : "true");
+			ample.query("xul|textbox[name=name]", this.element).attr("value", oItem ? oItem.name : "");
+			ample.query("xul|textbox[name=description]", this.element).attr("value", oItem ? oItem.description : "");
 			break;
 
 		case "Show":
@@ -29,5 +29,11 @@ Workspace.DataItemFormMediator.prototype.handleNotification	= function(oNotifica
 };
 
 Workspace.DataItemFormMediator.prototype.handleEvent	= function(oEvent) {
-	console.warn(oEvent);
+	if (oEvent.type == "DOMActivate") {
+		switch (oEvent.target.getAttribute("id")) {
+			case "Workspace-dataitemform-save":
+				this.sendNotification("UpdateDataItem");
+				break;
+		}
+	}
 };

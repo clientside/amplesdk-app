@@ -60,7 +60,7 @@ MVC.routeNotification	= function(oFacade, oNotification) {
 };
 
 MVC.prototype.sendNotification	= function(sNotification, oDetail) {
-console.info("notification: ", sNotification);
+console.info("notification: ", sNotification, oDetail);
 	MVC.routeNotification(this, new MVC.Notification(sNotification, oDetail));
 };
 

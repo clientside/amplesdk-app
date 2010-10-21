@@ -13,7 +13,7 @@
 			</xul:listhead>
 			<xul:listbody />
 		</xul:listbox>
-		<xul:grid id="Workspace-dataitem-form" hidden="true">
+		<xul:grid id="Workspace-dataitemform" hidden="true">
 			<xul:columns>
 				<xul:column width="100"/>
 				<xul:column />
@@ -28,8 +28,8 @@
 					<xul:textbox name="description" multiline="true" />
 				</xul:row>
 				<xul:row>
-					<xul:label />
-					<xul:button label="Update" name="save"/>
+					<xul:button label="Reset" id="Workspace-dataitemform-reset" pack="end"/>
+					<xul:button label="Save" id="Workspace-dataitemform-save"/>
 				</xul:row>
 			</xul:rows>
 		</xul:grid>

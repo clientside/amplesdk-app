@@ -54,6 +54,12 @@ Workspace.DataListMediator.prototype.handleNotification	= function(oNotification
 Workspace.DataListMediator.prototype.handleEvent	= function(oEvent) {
 	if (oEvent.type == "select") {
 		if (oEvent.target.getAttribute("id") == "Workspace-datalist")
-			this.sendNotification("SelectionChange", oEvent.target.selectedItems.length);
+			this.sendNotification("SelectionChange", this.getSelectedDataItem());
 	}
+};
+
+Workspace.DataListMediator.prototype.getSelectedDataItem	= function() {
+	return this.element.selectedItems.length
+		? this.facade.retrieveProxy("DataProxy").getItem(this.element.selectedItems[0].getAttribute("data-id"))
+		: null;
 };

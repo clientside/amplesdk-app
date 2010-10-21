@@ -14,7 +14,7 @@ Workspace.ToolbarMediator.prototype.onRegister	= function() {
 Workspace.ToolbarMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
 		case "SelectionChange":
-			ample.query("#Workspace-toolbar-remove", this.element).attr("disabled", oNotification.body == 0 ? "true" : null);
+			ample.query("#Workspace-toolbar-remove", this.element).attr("disabled", oNotification.body == null ? "true" : null);
 			break;
 	}
 };
