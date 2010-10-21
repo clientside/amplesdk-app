@@ -5,8 +5,6 @@ Workspace.DeleteDataItemCommand	= function() {
 Workspace.DeleteDataItemCommand.prototype	= new MVC.Command;
 
 Workspace.DeleteDataItemCommand.prototype.execute	= function(notification) {
-	alert('delete');return;
-	var oItem	= this.facade.retrieveMediator("DataListMediator").getSelectedDataItem();
-	if (oItem)
-		this.facade.retrieveProxy("DataProxy").deleteItem(oItem);
+	var proxy	= this.facade.retrieveProxy("DataProxy");
+	proxy.deleteItem(notification.data);
 };

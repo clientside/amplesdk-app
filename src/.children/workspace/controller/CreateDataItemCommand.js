@@ -5,5 +5,6 @@ Workspace.CreateDataItemCommand	= function() {
 Workspace.CreateDataItemCommand.prototype	= new MVC.Command;
 
 Workspace.CreateDataItemCommand.prototype.execute	= function(notification) {
-	alert('create');return;
+	var proxy	= this.facade.retrieveProxy("DataProxy");
+	proxy.createItem(notification.data);
 };
