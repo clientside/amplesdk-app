@@ -9,7 +9,7 @@ Workspace.prototype.initializeController	= function() {
 	// Register commands
 	this.registerCommand("_Ready",	Workspace._ReadyCommand);
 	//
-	this.registerCommand("AddDataItem",	Workspace.AddDataItemCommand);
+	this.registerCommand("CreateDataItem",	Workspace.CreateDataItemCommand);
 	this.registerCommand("DeleteDataItem",	Workspace.DeleteDataItemCommand);
 	this.registerCommand("UpdateDataItem",	Workspace.UpdateDataItemCommand);
 };
@@ -21,6 +21,7 @@ Workspace.prototype.initializeModel	= function() {
 
 Workspace.prototype.initializeView	= function() {
 	// Register mediators
+	this.registerMediator("ToolbarMediator", new Workspace.ToolbarMediator(ample.query("#Workspace-toolbar")[0]));
 	this.registerMediator("DataListMediator", new Workspace.DataListMediator(ample.query("#Workspace-datalist")[0]));
 	this.registerMediator("DataItemFormMediator", new Workspace.DataItemFormMediator(ample.query("#Workspace-dataitem-form")[0]));
 };

@@ -4,6 +4,8 @@ Workspace.DataProxy	= function() {
 
 Workspace.DataProxy.prototype	= new MVC.Proxy;
 
+Workspace.DataProxy.prototype.selectedItem	= null;
+
 Workspace.DataProxy.prototype.onRegister	= function() {
 	this.addItem(new Workspace.DataItemEntity("1", "A name", "A description"));
 	this.addItem(new Workspace.DataItemEntity("2", "B name", "B description"));
@@ -26,4 +28,13 @@ Workspace.DataProxy.prototype.updateItem	= function(/* Workspace.DataItemEntity 
 
 Workspace.DataProxy.prototype.deleteItem	= function(/* Workspace.DataItemEntity */ item) {
 
+};
+
+// Selection Model
+Workspace.DataProxy.prototype.setSelectedItem	= function(item) {
+	this.selectedItem	= item;
+};
+
+Workspace.DataProxy.prototype.getSelectedItem	= function() {
+	return this.selectedItem;
 };

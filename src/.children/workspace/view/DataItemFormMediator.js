@@ -11,6 +11,13 @@ Workspace.DataItemFormMediator.prototype.onRegister	= function() {
 
 Workspace.DataItemFormMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
+		case "SelectionChange":
+			if (oNotification.body)
+				ample.query(this.element).attr("hidden", null);
+			else
+				ample.query(this.element).attr("hidden", "true");
+			break;
+
 		case "Show":
 			ample.query(this.element).show("slow");
 			break;

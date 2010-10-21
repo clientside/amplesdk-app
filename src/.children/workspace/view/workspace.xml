@@ -1,15 +1,19 @@
 <?xml version="1.0"?>
 <xul:vbox id="Workspace" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<xul:vbox id="Workspace-dummy">
-		<xul:listbox id="Workspace-datalist">
+		<xul:toolbar id="Workspace-toolbar">
+			<xul:toolbarbutton id="Workspace-toolbar-add" label="Add new"/>
+			<xul:toolbarbutton id="Workspace-toolbar-remove" label="Remove selected"/>
+		</xul:toolbar>
+		<xul:listbox id="Workspace-datalist" seltype="single">
 			<xul:listhead>
 				<xul:listheader label="id" />
 				<xul:listheader label="Name" />
-				<xul:listheader label="Description" />
+				<xul:listheader label="Description" width="400"/>
 			</xul:listhead>
 			<xul:listbody />
 		</xul:listbox>
-		<xul:grid id="Workspace-dataitem-form">
+		<xul:grid id="Workspace-dataitem-form" hidden="true">
 			<xul:columns>
 				<xul:column width="100"/>
 				<xul:column />
@@ -21,7 +25,7 @@
 				</xul:row>
 				<xul:row>
 					<xul:label value="Description" />
-					<xul:textbox name="description" />
+					<xul:textbox name="description" multiline="true" />
 				</xul:row>
 				<xul:row>
 					<xul:label />
