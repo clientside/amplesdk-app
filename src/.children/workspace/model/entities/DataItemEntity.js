@@ -1,7 +1,7 @@
 Workspace.DataItemEntity	= function(id, name, description) {
-	this.id		= id;
-	this.name	= name;
-	this.description	= description;
+	this.id		= id || '';
+	this.name	= name || '';
+	this.description	= description || '';
 };
 
 Workspace.DataItemEntity.prototype.id	= 0;

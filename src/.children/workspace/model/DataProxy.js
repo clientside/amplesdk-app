@@ -7,41 +7,46 @@ Workspace.DataProxy.prototype	= new MVC.Proxy;
 Workspace.DataProxy.prototype.selectedItem	= null;
 
 Workspace.DataProxy.prototype.onRegister	= function() {
-	this.createItem(new Workspace.DataItemEntity("1", "A name", "A description"));
-	this.createItem(new Workspace.DataItemEntity("2", "B name", "B description"));
-	this.createItem(new Workspace.DataItemEntity("3", "C name", "C description"));
-	this.createItem(new Workspace.DataItemEntity("4", "D name", "D description"));
-	this.createItem(new Workspace.DataItemEntity("5", "E name", "E description"));
+	this.data.push(new Workspace.DataItemEntity("1", "A name", "A description"));
+	this.data.push(new Workspace.DataItemEntity("2", "B name", "B description"));
+	this.data.push(new Workspace.DataItemEntity("3", "C name", "C description"));
+	this.data.push(new Workspace.DataItemEntity("4", "D name", "D description"));
+	this.data.push(new Workspace.DataItemEntity("5", "E name", "E description"));
 };
 
 Workspace.DataProxy.prototype.createItem	= function(/* Workspace.DataItemEntity */ item) {
-	this.data.push(item);
 	//
 	var that	= this;
 	setTimeout(function(){
+		that.data.push(item);
+		// Notify
 		that.sendNotification("DataItemCreated", item);
 	}, 100);
 };
 
 Workspace.DataProxy.prototype.updateItem	= function(/* Workspace.DataItemEntity */ item) {
-	for (var n = 0; n < this.data.length; n++)
-		if (this.data[n].id == item.id) {
-			// TODO: Update
-			break;
-		}
 	//
 	var that	= this;
 	setTimeout(function(){
-		this.sendNotification("DataItemUpdated", item);
+		for (var n = 0; n < that.data.length; n++)
+			if (that.data[n].id == item.id) {
+				// TODO: Update
+				that.data[n].name			= item.name;
+				that.data[n].description	= item.description;
+				break;
+			}
+		//
+		that.sendNotification("DataItemUpdated", item);
 	}, 100);
 };
 
 Workspace.DataProxy.prototype.deleteItem	= function(/* Workspace.DataItemEntity */ item) {
-	var removed = this.data.splice(this.data.indexOf(item), 1);
 	//
 	var that	= this;
 	setTimeout(function(){
-		this.sendNotification("DataItemDeleted", removed);
+		that.data.splice(that.data.indexOf(item), 1);
+		//
+		that.sendNotification("DataItemDeleted", item);
 	}, 100);
 };
 

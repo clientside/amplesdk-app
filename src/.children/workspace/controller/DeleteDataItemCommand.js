@@ -6,5 +6,5 @@ Workspace.DeleteDataItemCommand.prototype	= new MVC.Command;
 
 Workspace.DeleteDataItemCommand.prototype.execute	= function(notification) {
 	var proxy	= this.facade.retrieveProxy("DataProxy");
-	proxy.deleteItem(notification.data);
+	proxy.deleteItem(notification.body);
 };

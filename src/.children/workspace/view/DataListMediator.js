@@ -26,27 +26,39 @@ Workspace.DataListMediator.prototype.onRemove		= function() {
 			.unbind("select", this);
 };
 
-Workspace.DataListMediator.prototype.handleNotification	= function(oNotification) {
-	switch (oNotification.name) {
-/*
-		case "CreateDataItem":
-			ample.query(this.element.body).append(
-				ample.query("<xul:listitem data-id=\"temporary-" + new Date().getTime() + "\">\
-								<xul:listcell></xul:listcell>\
-								<xul:listcell></xul:listcell>\
-								<xul:listcell></xul:listcell>\
-							</xul:listitem>"));
-			// Select last item
-			this.element.selectItem(this.element.items[this.element.items.length - 1]);
-			this.element.focus();
-			break;
-*/
+Workspace.DataListMediator.prototype.handleNotification	= function(notification) {
+	switch (notification.name) {
 		case "Show":
 			ample.query(this.element).show("slow");
 			break;
 
 		case "Hide":
 			ample.query(this.element).hide();
+			break;
+
+		case "DataItemCreated":
+			var item	= notification.body;
+			ample.query(this.element.body).append(
+					ample.query("<xul:listitem data-id=\"" + item.id + "\">\
+									<xul:listcell>" + item.id + "</xul:listcell>\
+									<xul:listcell>" + item.name + "</xul:listcell>\
+									<xul:listcell>" + item.description + "</xul:listcell>\
+								</xul:listitem>"));
+				// Select last item
+				this.element.selectItem(this.element.items[this.element.items.length - 1]);
+				this.element.focus();
+			break;
+
+		case "DataItemUpdated":
+			var item	= notification.body;
+			var cells	= ample.query("[data-id=" + item.id + "] xul|listcell", this.element);
+			ample.query(cells[1]).attr("label", item.name);
+			ample.query(cells[2]).attr("label", item.description);
+			break;
+
+		case "DataItemDeleted":
+			var item	= notification.body;
+			ample.query("[data-id=" + item.id + "]", this.element).remove();
 			break;
 	}
 };
@@ -63,3 +75,4 @@ Workspace.DataListMediator.prototype.getSelectedDataItem	= function() {
 		? this.facade.retrieveProxy("DataProxy").getItem(this.element.selectedItems[0].getAttribute("data-id"))
 		: null;
 };
+

@@ -13,6 +13,14 @@ Workspace.ToolbarMediator.prototype.onRegister	= function() {
 
 Workspace.ToolbarMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
+		case "Show":
+			ample.query(this.element).show("slow");
+			break;
+
+		case "Hide":
+			ample.query(this.element).hide();
+			break;
+
 		case "SelectionChange":
 			ample.query("#Workspace-toolbar-remove", this.element).attr("disabled", oNotification.body == null ? "true" : null);
 			break;
@@ -27,7 +35,9 @@ Workspace.ToolbarMediator.prototype.handleEvent	= function(oEvent) {
 				break;
 
 			case "Workspace-toolbar-remove":
-				this.sendNotification("DeleteDataItem");
+				var item	= this.facade.retrieveMediator("DataListMediator").getSelectedDataItem();
+				if (item)
+					this.sendNotification("DeleteDataItem", item);
 				break;
 		}
 	}

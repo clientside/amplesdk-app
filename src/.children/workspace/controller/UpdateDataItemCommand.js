@@ -6,5 +6,5 @@ Workspace.UpdateDataItemCommand.prototype	= new MVC.Command;
 
 Workspace.UpdateDataItemCommand.prototype.execute	= function(notification) {
 	var proxy	= this.facade.retrieveProxy("DataProxy");
-	proxy.updateItem(notification.data);
+	proxy.updateItem(notification.body);
 };
