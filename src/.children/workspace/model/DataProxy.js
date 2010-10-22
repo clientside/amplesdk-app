@@ -14,10 +14,11 @@ Workspace.DataProxy.prototype.onRegister	= function() {
 	this.data.push(new Workspace.DataItemEntity("5", "E name", "E description"));
 };
 
-Workspace.DataProxy.prototype.createItem	= function(/* Workspace.DataItemEntity */ item) {
+Workspace.DataProxy.prototype.createItem	= function() {
 	//
 	var that	= this;
 	setTimeout(function(){
+		var item	= new Workspace.DataItemEntity("temp-" + new Date().getTime());
 		that.data.push(item);
 		// Notify
 		that.sendNotification("DataItemCreated", item);
