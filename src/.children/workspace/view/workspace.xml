@@ -29,7 +29,7 @@
 					<xul:textbox name="description" multiline="true" />
 				</xul:row>
 				<xul:row>
-					<xul:button label="Reset" id="Workspace-dataitemform-reset" pack="end"/>
+					<xul:button label="Cancel" id="Workspace-dataitemform-cancel" pack="end"/>
 					<xul:button label="Save" id="Workspace-dataitemform-save"/>
 				</xul:row>
 			</xul:rows>

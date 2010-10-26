@@ -6,11 +6,12 @@ Workspace.DataItemFormMediator.prototype	= new MVC.Mediator;
 
 Workspace.DataItemFormMediator.prototype.onRegister	= function() {
 	ample.query("xul|textbox[name=name], xul|textbox[name=description]", this.element).bind("change", this);
-	ample.query("#Workspace-dataitemform-save, #Workspace-dataitemform-reset", this.element).bind("DOMActivate", this);
+	ample.query("#Workspace-dataitemform-save, #Workspace-dataitemform-cancel", this.element).bind("DOMActivate", this);
 };
 
 Workspace.DataItemFormMediator.prototype.handleNotification	= function(oNotification) {
 	switch (oNotification.name) {
+		case "DataItemUpdated":
 		case "SelectionChange":
 			// TODO:
 			this.setFormVisible(false);
@@ -30,6 +31,7 @@ Workspace.DataItemFormMediator.prototype.handleNotification	= function(oNotifica
 			this.setFormVisible(true);
 			break;
 
+		case "CancelDataItem":
 		case "Hide":
 			this.setFormVisible(false);
 			break;
@@ -61,9 +63,8 @@ Workspace.DataItemFormMediator.prototype.handleEvent	= function(oEvent) {
 					);
 				break;
 
-			case "Workspace-dataitemform-reset":
-				var item	= this.facade.retrieveMediator("DataListMediator").getSelectedDataItem();
-				this.presentItem(item);
+			case "Workspace-dataitemform-cancel":
+				this.sendNotification("CancelDataItem");
 				break;
 		}
 	}
