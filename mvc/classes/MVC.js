@@ -53,7 +53,7 @@ MVC.routeNotification	= function(oFacade, oNotification) {
 
 	// Pass notification to parent
 	if (oFacade.parent) {
-		oNotification.name	= oFacade.name + ':' + oNotification.name;
+		oNotification.name	= "child" + ':' + oNotification.name;
 		console.info("notification (routing): ", oNotification.name);
 		MVC.routeNotification(oFacade.parent, oNotification);
 	}
