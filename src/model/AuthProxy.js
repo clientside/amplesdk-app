@@ -32,8 +32,6 @@ Main.AuthProxy.prototype.logout	= function() {
 						that.sendNotification("LogoutFailure");
 					else {
 						that.data.token	= "";
-						//
-			//			ample.cookie("token", null);
 						that.sendNotification("LogoutSuccess");
 					}
 				}
