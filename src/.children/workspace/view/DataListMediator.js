@@ -36,6 +36,10 @@ Workspace.DataListMediator.prototype.handleNotification	= function(notification)
 			ample.query(this.element).hide();
 			break;
 
+		case "InitDataItem":
+			this.element.clearSelection();
+			break;
+
 		case "CreateDataItem":
 		case "DeleteDataItem":
 		case "UpdateDataItem":

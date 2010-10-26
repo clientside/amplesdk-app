@@ -14,14 +14,18 @@ Workspace.DataProxy.prototype.onRegister	= function() {
 	this.data.push(new Workspace.DataItemEntity("5", "E name", "E description"));
 };
 
-Workspace.DataProxy.prototype.createItem	= function() {
+Workspace.DataProxy.prototype.createItem	= function(/* Workspace.DataItemEntity */ item) {
 	//
 	var that	= this;
 	setTimeout(function(){
-		var item	= new Workspace.DataItemEntity("temp-" + new Date().getTime());
-		that.data.push(item);
+		var newitem	= new Workspace.DataItemEntity(
+							"temp-" + new Date().getTime(),
+							item.name,
+							item.description
+					);
+		that.data.push(newitem);
 		// Notify
-		that.sendNotification("DataItemCreated", item);
+		that.sendNotification("DataItemCreated", newitem);
 	}, 100);
 };
 

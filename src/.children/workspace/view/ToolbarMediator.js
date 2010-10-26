@@ -8,6 +8,7 @@ Workspace.ToolbarMediator.prototype.onRegister	= function() {
 	ample.query(this.element).bind("DOMActivate", this);
 
 	//
+	ample.query("#Workspace-toolbar-edit", this.element).attr("disabled", "true");
 	ample.query("#Workspace-toolbar-remove", this.element).attr("disabled", "true");
 };
 
@@ -22,6 +23,7 @@ Workspace.ToolbarMediator.prototype.handleNotification	= function(oNotification)
 			break;
 
 		case "SelectionChange":
+			ample.query("#Workspace-toolbar-edit", this.element).attr("disabled", oNotification.body == null ? "true" : null);
 			ample.query("#Workspace-toolbar-remove", this.element).attr("disabled", oNotification.body == null ? "true" : null);
 			break;
 	}
@@ -31,7 +33,13 @@ Workspace.ToolbarMediator.prototype.handleEvent	= function(oEvent) {
 	if (oEvent.type == "DOMActivate") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Workspace-toolbar-add":
-				this.sendNotification("CreateDataItem");
+				this.sendNotification("InitDataItem");
+				break;
+
+			case "Workspace-toolbar-edit":
+				var item	= this.facade.retrieveMediator("DataListMediator").getSelectedDataItem();
+				if (item)
+					this.sendNotification("EditDataItem", item);
 				break;
 
 			case "Workspace-toolbar-remove":

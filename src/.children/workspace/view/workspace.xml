@@ -2,8 +2,9 @@
 <xul:vbox id="Workspace" xmlns="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<xul:vbox id="Workspace-dummy">
 		<xul:toolbar id="Workspace-toolbar">
-			<xul:toolbarbutton id="Workspace-toolbar-add" label="Add new"/>
-			<xul:toolbarbutton id="Workspace-toolbar-remove" label="Remove selected"/>
+			<xul:toolbarbutton id="Workspace-toolbar-add" label="Add item"/>
+			<xul:toolbarbutton id="Workspace-toolbar-edit" label="Edit item"/>
+			<xul:toolbarbutton id="Workspace-toolbar-remove" label="Remove items"/>
 		</xul:toolbar>
 		<xul:listbox id="Workspace-datalist" seltype="single">
 			<xul:listhead>
