@@ -11,7 +11,7 @@ Main.AuthProxy.prototype.onRegister	= function() {
 
 Main.AuthProxy.prototype.login	= function(/* LoginEntity */login) {
 	var that	= this;
-	ample.ajax({method: "POST",
+	ample.ajax({type: "POST",
 				url: "srv/auth.php?action=login",
 				data: "login=" + encodeURIComponent(login.login) + "&password=" + encodeURIComponent(login.password),
 				headers: {"Content-Type": "application/x-www-form-urlencoded"},

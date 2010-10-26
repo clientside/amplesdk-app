@@ -29,16 +29,17 @@ Main.LoginMediator.prototype.handleNotification	= function(oNotification) {
 		case "LogoutFailure":
 		case "LogoutSuccess":
 			ample.query("#Main-logout-button", this.element).attr("disabled", null);
-			ample.query("#Main-logout-button", this.element).attr("disabled", null);
 			break;
 
 		case "TryLogin":
 			ample.query("#Main-login-form-submit", this.element).attr("disabled", "true");
 			break;
 
-		case "LoginFailure":
 		case "LoginSuccess":
-			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
+			if (ample.query("[name=remember]", this.element).attr("checked") != "true")
+				this.clearForm();
+			// No break intentionally left
+		case "LoginFailure":
 			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
 			break;
 
@@ -82,4 +83,9 @@ Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 				break;
 		}
 	}
+};
+
+Main.LoginMediator.prototype.clearForm	= function() {
+	ample.query("[name=login]", this.element).attr("value", "");
+	ample.query("[name=password]", this.element).attr("value", "");
 };
