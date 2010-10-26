@@ -47,20 +47,23 @@ MVC.routeNotification	= function(oFacade, oNotification) {
 		new MVC.ShutdownCommand(oFacade).execute(oNotification);
 	else
 	if (oFacade.commands.hasOwnProperty(oNotification.name)) {
-		console.warn("command: ", oNotification.name);
+		if (window.console && console.warn)
+			console.warn("command: ", oNotification.name);
 		new oFacade.commands[oNotification.name](oFacade).execute(oNotification);
 	}
 
 	// Pass notification to parent
 	if (oFacade.parent) {
 		oNotification.name	= "child" + ':' + oNotification.name;
-		console.info("notification (routing): ", oNotification.name);
+		if (window.console && console.info)
+			console.info("notification (routing): ", oNotification.name);
 		MVC.routeNotification(oFacade.parent, oNotification);
 	}
 };
 
 MVC.prototype.sendNotification	= function(sNotification, oDetail) {
-console.info("notification: ", sNotification, oDetail);
+	if (window.console && console.info)
+		console.info("notification: ", sNotification, oDetail);
 	MVC.routeNotification(this, new MVC.Notification(sNotification, oDetail));
 };
 
