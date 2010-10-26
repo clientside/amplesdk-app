@@ -36,7 +36,15 @@ Workspace.DataListMediator.prototype.handleNotification	= function(notification)
 			ample.query(this.element).hide();
 			break;
 
+		case "CreateDataItem":
+		case "DeleteDataItem":
+		case "UpdateDataItem":
+			this.setListViewDisabled(true);
+			break;
+
 		case "DataItemCreated":
+			this.setListViewDisabled(false);
+
 			var item	= notification.body;
 			ample.query(this.element.body).append(
 					ample.query("<xul:listitem data-id=\"" + item.id + "\">\
@@ -50,6 +58,8 @@ Workspace.DataListMediator.prototype.handleNotification	= function(notification)
 			break;
 
 		case "DataItemUpdated":
+			this.setListViewDisabled(false);
+
 			var item	= notification.body;
 			var cells	= ample.query("[data-id=" + item.id + "] xul|listcell", this.element);
 			ample.query(cells[1]).attr("label", item.name);
@@ -57,6 +67,8 @@ Workspace.DataListMediator.prototype.handleNotification	= function(notification)
 			break;
 
 		case "DataItemDeleted":
+			this.setListViewDisabled(false);
+
 			var item	= notification.body;
 			ample.query("[data-id=" + item.id + "]", this.element).remove();
 			break;
@@ -76,3 +88,6 @@ Workspace.DataListMediator.prototype.getSelectedDataItem	= function() {
 		: null;
 };
 
+Workspace.DataListMediator.prototype.setListViewDisabled	= function(bDisabled) {
+	ample.query(this.element).attr("disabled", bDisabled ? "true" : null);
+};
