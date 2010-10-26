@@ -5,6 +5,8 @@ Main.LogoutSuccessCommand	= function() {
 Main.LogoutSuccessCommand.prototype	= new MVC.Command;
 
 Main.LogoutSuccessCommand.prototype.execute	= function() {
+	ample.cookie("token", "");
+	//
 	this.sendNotification("HideWorkspace");
 	this.sendNotification("ShowLogin");
 };

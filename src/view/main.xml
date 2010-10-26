@@ -17,7 +17,7 @@
 					</xul:row>
 					<xul:row>
 						<xul:label />
-						<xul:checkbox name="remember" label="Remember me" checked="true"/>
+						<xul:checkbox name="remember" label="Remember me" />
 					</xul:row>
 					<xul:row>
 						<xul:label />

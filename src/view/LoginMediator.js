@@ -36,8 +36,7 @@ Main.LoginMediator.prototype.handleNotification	= function(oNotification) {
 			break;
 
 		case "LoginSuccess":
-			if (ample.query("[name=remember]", this.element).attr("checked") != "true")
-				this.clearForm();
+			this.clearForm();
 			// No break intentionally left
 		case "LoginFailure":
 			ample.query("#Main-login-form-submit", this.element).attr("disabled", null);
@@ -88,4 +87,8 @@ Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 Main.LoginMediator.prototype.clearForm	= function() {
 	ample.query("[name=login]", this.element).attr("value", "");
 	ample.query("[name=password]", this.element).attr("value", "");
+};
+
+Main.LoginMediator.prototype.isRemember	= function() {
+	return ample.query("[name=remember]", this.element).attr("checked") == "true";
 };
