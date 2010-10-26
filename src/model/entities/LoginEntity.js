@@ -1,4 +1,4 @@
-Main.LoginEntity	= function(login, password, remember) {
+Main.LoginEntity	= function(login, password) {
 	this.login		= login;
 	this.password	= password;
 };
