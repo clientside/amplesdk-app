@@ -9,7 +9,7 @@
 				<xul:rows>
 					<xul:row>
 						<xul:label width="100" value="Login" />
-						<xul:textbox name="login" />
+						<xul:textbox name="login"/>
 					</xul:row>
 					<xul:row>
 						<xul:label value="Password" />

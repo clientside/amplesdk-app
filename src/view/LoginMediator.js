@@ -55,10 +55,26 @@ Main.LoginMediator.prototype.handleEvent	= function(oEvent) {
 	if (oEvent.type == "DOMActivate") {
 		switch (oEvent.target.getAttribute("id")) {
 			case "Main-login-form-submit":
-				this.sendNotification("TryLogin", new Main.LoginEntity(
-															ample.query("[name=login]", this.element).attr("value"),
-															ample.query("[name=password]", this.element).attr("value")
-													));
+				var bValid	= true,
+					sLogin		= ample.query("[name=login]", this.element).attr("value"),
+					sPassword	= ample.query("[name=password]", this.element).attr("value");
+
+				if (sLogin == "") {
+					bValid	= false;
+				}
+				if (sPassword == "") {
+					bValid	= false;
+				}
+
+				if (bValid)
+					this.sendNotification("TryLogin", new Main.LoginEntity(
+															sLogin,
+															sPassword
+					));
+				else
+					ample.query(this.element).animate({"background-color":"pink"}, "fast", "ease", function() {
+						ample.query(this).animate({"background-color":"white"});
+					});
 				break;
 
 			case "Main-logout-button":
